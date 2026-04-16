@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VOLTR. | Structured Training for Real Life</title>
+<meta name="description" content="Four training programs built for people with real lives. RPE-based, flexible frequency, 7-day free trial. €49.99/month.">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --black: #000;
+    --white: #fff;
+    --grey-light: #f5f5f5;
+    --grey-mid: #999;
+    --grey-dark: #333;
+    --font: 'Outfit', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font);
+    font-weight: 300;
+    color: var(--white);
+    background: var(--black);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { text-decoration: none; color: inherit; }
+
+  .section {
+    padding: 120px 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 768px) {
+    .section { padding: 80px 20px; }
+  }
+
+  /* ===== CTA BUTTON ===== */
+  .cta {
+    display: inline-block;
+    padding: 16px 40px;
+    border: 1px solid var(--white);
+    color: var(--white);
+    font-family: var(--font);
+    font-weight: 300;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  .cta:hover {
+    background: var(--white);
+    color: var(--black);
+  }
+  .cta--dark {
+    border-color: var(--black);
+    color: var(--black);
+  }
+  .cta--dark:hover {
+    background: var(--black);
+    color: var(--white);
+  }
+
+  /* ===== TYPOGRAPHY ===== */
+  .headline {
+    font-weight: 200;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  .headline--xl {
+    font-size: clamp(40px, 6vw, 72px);
+  }
+  .headline--lg {
+    font-size: clamp(32px, 4vw, 52px);
+  }
+  .headline--md {
+    font-size: clamp(24px, 3vw, 36px);
+  }
+  .body-text {
+    font-weight: 300;
+    font-size: clamp(16px, 1.8vw, 19px);
+    line-height: 1.7;
+    max-width: 680px;
+  }
+  .label {
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.5;
+    margin-bottom: 24px;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .hero .section {
+    padding-top: 160px;
+    padding-bottom: 160px;
+  }
+  .hero__sub {
+    margin-top: 32px;
+    font-size: clamp(16px, 1.8vw, 20px);
+    font-weight: 200;
+    opacity: 0.6;
+    max-width: 560px;
+    line-height: 1.6;
+  }
+  .hero .cta {
+    margin-top: 48px;
+  }
+  .hero__brand {
+    font-weight: 200;
+    font-size: 14px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    opacity: 0.4;
+    margin-bottom: 48px;
+  }
+
+  /* ===== WHITE SECTIONS ===== */
+  .section--white {
+    background: var(--white);
+    color: var(--black);
+  }
+  .section--white .section {
+    color: var(--black);
+  }
+  .full-white {
+    background: var(--white);
+    color: var(--black);
+  }
+  .full-black {
+    background: var(--black);
+    color: var(--white);
+  }
+
+  /* ===== PROBLEM ===== */
+  .problem .body-text {
+    margin-top: 32px;
+    color: var(--grey-dark);
+  }
+
+  /* ===== APP SHOWCASE ===== */
+  .app-showcase {
+    text-align: center;
+  }
+  .app-showcase .headline {
+    margin-bottom: 80px;
+  }
+
+  /* ===== MARCHON SHOWCASE ===== */
+  .marchon-showcase {
+    position: relative;
+    overflow: hidden;
+    background: #000;
+    color: #fff;
+    padding: 120px 0 140px;
+  }
+  .marchon-showcase__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .marchon-showcase__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%) brightness(0.45) contrast(1.05);
+    opacity: 0.7;
+  }
+  .marchon-showcase__bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.1) 30%, rgba(0,0,0,0.1) 70%, rgba(0,0,0,0.55) 100%);
+  }
+  .marchon-showcase__inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+  .marchon-showcase__header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+  .marchon-showcase__header img.mark {
+    height: 48px;
+    width: auto;
+    opacity: 0.95;
+    margin-bottom: 32px;
+  }
+  .marchon-showcase__stage {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(260px, 1fr) auto minmax(260px, 1fr);
+    gap: 32px;
+    align-items: center;
+  }
+  .marchon-showcase__col {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .marchon-showcase__col--left { align-items: flex-start; }
+  .marchon-showcase__col--right { align-items: flex-end; }
+  .marchon-phones {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    position: relative;
+    z-index: 2;
+  }
+  .marchon-phone {
+    width: 260px;
+    flex-shrink: 0;
+    position: relative;
+  }
+  .marchon-phone--back {
+    width: 260px;
+  }
+  .marchon-phone .phone-frame {
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 32px;
+    background: #000;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04);
+    aspect-ratio: 9 / 19.5;
+    overflow: hidden;
+    position: relative;
+  }
+  .marchon-phone .phone-frame::before {
+    display: none;
+  }
+  .marchon-phone .phone-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  @media (max-width: 720px) {
+    .marchon-phones { flex-direction: column; gap: 20px; }
+    .marchon-phone--back { transform: none; width: 240px; }
+  }
+  .float-card {
+    position: relative;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.18);
+    backdrop-filter: blur(28px) saturate(140%);
+    -webkit-backdrop-filter: blur(28px) saturate(140%);
+    padding: 20px 22px;
+    z-index: 3;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.1);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 300px;
+  }
+  .chat-bubble {
+    display: inline-block;
+    padding: 12px 16px;
+    border-radius: 18px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.5;
+    max-width: 100%;
+    margin-bottom: 8px;
+  }
+  .chat-bubble--in {
+    background: rgba(255,255,255,0.14);
+    border-radius: 18px 18px 18px 6px;
+    color: rgba(255,255,255,0.95);
+  }
+  .chat-bubble--out {
+    background: rgba(255,255,255,0.92);
+    color: #000;
+    border-radius: 18px 18px 6px 18px;
+    margin-left: auto;
+    display: block;
+    text-align: left;
+  }
+  .chat-row {
+    display: flex;
+  }
+  .chat-row--right { justify-content: flex-end; }
+  .float-card__meta {
+    font-family: 'Outfit', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 10px;
+  }
+  .float-card__body {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.95);
+  }
+  .float-card__time {
+    margin-top: 12px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+  }
+  .float-card__head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .float-card__avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.95);
+  }
+  .float-card__name {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.9);
+  }
+  .float-card__role {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-top: 1px;
+  }
+  .float-card--calendar { max-width: 260px; }
+  .float-card__reactions {
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 1px;
+  }
+  .float-card__reactions span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .float-card__grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    margin-top: 4px;
+  }
+  .float-card__day {
+    aspect-ratio: 1;
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    font-size: 10px;
+    color: rgba(255,255,255,0.55);
+  }
+  .float-card__day.is-done {
+    background: rgba(255,255,255,0.95);
+    color: #000;
+    border-color: rgba(255,255,255,0.95);
+  }
+  .float-card__day.is-rest {
+    opacity: 0.3;
+  }
+
+  @media (max-width: 960px) {
+    .marchon-showcase { padding: 80px 0 100px; }
+    .marchon-showcase__stage {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+    .marchon-showcase__col--left,
+    .marchon-showcase__col--right {
+      align-items: center;
+      gap: 20px;
+    }
+    .marchon-phones { order: 0; }
+    .float-card { max-width: 340px; margin: 0 auto; }
+  }
+  @media (max-width: 720px) {
+    .marchon-showcase__inner { padding: 0 20px; }
+    .marchon-phone { width: 200px; }
+    .marchon-phone--back { width: 200px; }
+  }
+  .phone-row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .phone-mockup {
+    width: 320px;
+    flex-shrink: 0;
+  }
+  .phone-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9 / 19.5;
+    border: 2px solid rgba(255,255,255,0.2);
+    border-radius: 36px;
+    overflow: hidden;
+    background: #111;
+  }
+  .phone-frame::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 24px;
+    background: #111;
+    border-radius: 0 0 16px 16px;
+    z-index: 2;
+  }
+  .phone-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .phone-frame .placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.3;
+    padding: 20px;
+    text-align: center;
+  }
+  .phone-label {
+    margin-top: 16px;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.5;
+  }
+
+  @media (max-width: 768px) {
+    .phone-mockup { width: calc(50% - 10px); max-width: 240px; }
+    .phone-row { gap: 20px; }
+    .phone-frame { border-radius: 28px; }
+    .phone-frame::before { width: 60px; height: 20px; border-radius: 0 0 12px 12px; }
+  }
+  @media (max-width: 480px) {
+    .phone-mockup { width: calc(50% - 8px); }
+    .phone-row { gap: 16px; }
+    .phone-frame { border-radius: 22px; }
+    .phone-frame::before { width: 50px; height: 16px; }
+  }
+
+  /* ===== PLANS ===== */
+  .plans-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px;
+    margin-top: 64px;
+  }
+  @media (max-width: 768px) {
+    .plans-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+  .plan-card {
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  }
+  .plan-card__image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #e0e0e0;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #999;
+    overflow: hidden;
+  }
+  .plan-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .plan-card__name {
+    font-weight: 400;
+    font-size: 28px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .plan-card__detail {
+    font-weight: 300;
+    font-size: 16px;
+    color: var(--grey-mid);
+    margin-bottom: 8px;
+  }
+  .plan-card__freq {
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    opacity: 0.5;
+    margin-bottom: 24px;
+  }
+  .plan-card .cta {
+    font-size: 12px;
+    padding: 12px 28px;
+  }
+  .plan-card__ctas {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 8px;
+  }
+  .plan-card .cta--solid {
+    background: var(--black);
+    color: var(--white);
+    border-color: var(--black);
+  }
+  .plan-card .cta--solid:hover {
+    background: transparent;
+    color: var(--black);
+  }
+  .plan-card .cta--text {
+    padding: 12px 0;
+    border: none;
+    letter-spacing: 2px;
+    color: var(--grey-mid);
+  }
+  .plan-card .cta--text:hover {
+    background: transparent;
+    color: var(--black);
+  }
+
+  /* ===== FEATURES ===== */
+  .features-list {
+    list-style: none;
+    margin-top: 48px;
+  }
+  .features-list li {
+    font-weight: 300;
+    font-size: clamp(16px, 1.8vw, 20px);
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    letter-spacing: 0.5px;
+  }
+  .features-list li:first-child {
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  /* ===== METHODOLOGY ===== */
+  .methodology-split {
+    display: flex;
+    gap: 80px;
+    align-items: center;
+  }
+  .methodology-split__image {
+    flex-shrink: 0;
+    width: 400px;
+    aspect-ratio: 3 / 4;
+    background: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #999;
+    overflow: hidden;
+  }
+  .methodology-split__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  @media (max-width: 768px) {
+    .methodology-split { flex-direction: column; gap: 40px; }
+    .methodology-split__image { width: 100%; }
+  }
+  .methodology .body-text {
+    margin-top: 32px;
+    color: var(--grey-dark);
+  }
+
+  /* ===== PRICING ===== */
+  .pricing { text-align: center; }
+  .pricing__price {
+    font-weight: 200;
+    font-size: clamp(56px, 8vw, 96px);
+    letter-spacing: -2px;
+    margin: 40px 0 8px;
+  }
+  .pricing__per {
+    font-weight: 300;
+    font-size: 16px;
+    opacity: 0.5;
+    letter-spacing: 1px;
+  }
+  .pricing__details {
+    margin: 40px auto;
+    max-width: 400px;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 2;
+    opacity: 0.7;
+  }
+
+  /* ===== COACH ===== */
+  .coach {
+    display: flex;
+    gap: 80px;
+    align-items: center;
+  }
+  .coach__image {
+    flex-shrink: 0;
+    width: 360px;
+    height: 480px;
+    background: var(--grey-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--grey-mid);
+  }
+  .coach__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .coach__text .body-text {
+    margin-top: 24px;
+    color: var(--grey-dark);
+  }
+  @media (max-width: 768px) {
+    .coach {
+      flex-direction: column;
+      gap: 40px;
+    }
+    .coach__image {
+      width: 100%;
+      height: 320px;
+    }
+  }
+
+  /* ===== COACHING UPSELL ===== */
+  /* ===== PROGRESSION GRAPHIC ===== */
+  .progression {
+    padding: 120px 32px;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .progression__caption {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.4);
+    margin-bottom: 16px;
+  }
+  .progression__charts {
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+  .progression__panel {
+    text-align: left;
+    border-top: 1px solid rgba(0,0,0,0.12);
+    padding-top: 24px;
+  }
+  .progression__panel-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 24px;
+  }
+  .progression__panel-title {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: 400;
+  }
+  .progression__panel-delta {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    color: rgba(0,0,0,0.5);
+    letter-spacing: 1px;
+  }
+  .progression__chart {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+    align-items: end;
+    height: 160px;
+  }
+  .progression__col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: flex-end;
+    position: relative;
+  }
+  .progression__bar {
+    width: 100%;
+    background: #000;
+    position: relative;
+  }
+  .progression__label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.4);
+    margin-top: 12px;
+  }
+  .progression__footer {
+    margin-top: 56px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.4);
+  }
+  @media (max-width: 768px) {
+    .progression__charts { grid-template-columns: 1fr; gap: 32px; }
+    .progression__chart { height: 140px; }
+  }
+
+  /* ===== FAQ ===== */
+  .faq {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 120px 32px;
+  }
+  .faq__header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+  .faq__item {
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding: 28px 0;
+  }
+  .faq__item:last-child {
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+  .faq__question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    cursor: pointer;
+    list-style: none;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 300;
+    font-size: clamp(17px, 2vw, 20px);
+    color: rgba(255,255,255,0.95);
+    letter-spacing: -0.01em;
+  }
+  .faq__question::-webkit-details-marker { display: none; }
+  .faq__toggle {
+    flex-shrink: 0;
+    font-family: 'Outfit', sans-serif;
+    font-size: 22px;
+    font-weight: 200;
+    line-height: 1;
+    color: rgba(255,255,255,0.6);
+    transition: transform 0.3s ease;
+  }
+  .faq__item[open] .faq__toggle {
+    transform: rotate(45deg);
+  }
+  .faq__answer {
+    margin-top: 16px;
+    font-size: 15px;
+    line-height: 1.7;
+    font-weight: 300;
+    color: rgba(255,255,255,0.65);
+    max-width: 640px;
+  }
+
+  .coaching-upsell { text-align: center; }
+  .coaching-upsell .body-text {
+    margin: 24px auto 40px;
+    opacity: 0.7;
+    text-align: center;
+  }
+  .coaching-upsell__price {
+    font-weight: 200;
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
+  .coaching-upsell__per {
+    font-size: 14px;
+    opacity: 0.5;
+    margin-bottom: 40px;
+  }
+
+  /* ===== GRAYSCALE MEDIA ===== */
+  .media-bw {
+    filter: grayscale(100%);
+  }
+  .media-bw-overlay {
+    filter: grayscale(100%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* ===== VIDEO BG SECTION ===== */
+  .section-video-bg {
+    position: relative;
+    overflow: hidden;
+  }
+  .section-video-bg__video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    opacity: 0.25;
+    z-index: 0;
+  }
+  .section-video-bg__content {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    padding: 60px 32px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .footer__brand {
+    font-weight: 200;
+    font-size: 18px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .footer__links {
+    font-size: 13px;
+    font-weight: 300;
+    opacity: 0.4;
+    line-height: 2;
+    letter-spacing: 1px;
+  }
+  .footer__links a {
+    margin: 0 12px;
+    transition: opacity 0.2s;
+  }
+  .footer__links a:hover { opacity: 1; }
+  .footer__copy {
+    margin-top: 24px;
+    font-size: 12px;
+    opacity: 0.25;
+    letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<div class="full-black" style="position: relative;">
+  <!-- HERO BACKGROUND VIDEO -->
+  <div style="position: absolute; inset: 0; background: #000; overflow: hidden;">
+    <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;opacity:0.3;filter:grayscale(100%) brightness(0.7);">
+      <source src="https://video.wixstatic.com/video/21cb00_8c1388e9f7d441b6a20d9f1b4500eaa0/1080p/mp4/file.mp4" type="video/mp4">
+      <source src="https://video.wixstatic.com/video/21cb00_8c1388e9f7d441b6a20d9f1b4500eaa0/720p/mp4/file.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero" style="position: relative; z-index: 1;">
+    <div class="section">
+      <div class="hero__brand" style="color: #888; opacity: 1;">VOLTR.</div>
+      <h1 class="headline headline--xl">Training that fits<br>your week. Not the<br>other way around.</h1>
+      <p class="hero__sub">Structured programs for people with real lives. Plans that adjust to your week. Seven days free.</p>
+      <a href="https://voltrmvtso.mvt.so/sales-page" class="cta">Start 7-Day Trial</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== THE PROBLEM ===== -->
+<div class="full-black">
+  <div class="section problem">
+    <div class="label">The reality</div>
+    <h2 class="headline headline--lg">Most plans are built for a life you don't have.</h2>
+    <p class="body-text" style="color: rgba(255,255,255,0.75);">Too many sessions. Too much volume. No flexibility when the week goes sideways. The plan didn't fail you. It was never designed for your reality.</p>
+    <p class="body-text" style="margin-top: 20px; color: rgba(255,255,255,0.75);">VOLTR is different. Plans that adjust to your energy level. Honest frequency options. Equipment alternatives for every exercise. The plan adapts. You don't have to.</p>
+  </div>
+</div>
+
+<!-- ===== APP SHOWCASE — MARCHON STYLE ===== -->
+<section class="marchon-showcase">
+  <div class="marchon-showcase__bg">
+    <img src="https://static.wixstatic.com/media/21cb00_5ddab3e026ee4cc69230db1460d2fde4~mv2.jpg" alt="">
+  </div>
+  <div class="marchon-showcase__inner">
+    <div class="marchon-showcase__header">
+      <div class="label">The App</div>
+      <h2 class="headline headline--lg">Your training. One app.</h2>
+    </div>
+
+    <div class="marchon-showcase__stage">
+      <!-- Left column: Chat + Community -->
+      <div class="marchon-showcase__col marchon-showcase__col--left">
+        <div class="float-card">
+          <div class="float-card__head">
+            <div class="float-card__avatar">L</div>
+            <div>
+              <div class="float-card__name">Lukas</div>
+              <div class="float-card__role">Owner</div>
+            </div>
+          </div>
+          <div class="chat-row chat-row--right">
+            <div class="chat-bubble chat-bubble--out">Can I swap barbell rows for dumbbells today?</div>
+          </div>
+          <div class="chat-row">
+            <div class="chat-bubble chat-bubble--in">Yes — same sets, same RPE. Swap it in the app.</div>
+          </div>
+          <div class="float-card__time">Today · 09:14</div>
+        </div>
+
+        <div class="float-card">
+          <div class="float-card__head">
+            <div class="float-card__avatar">M</div>
+            <div>
+              <div class="float-card__name">Marc</div>
+              <div class="float-card__role">HYBRID · Community</div>
+            </div>
+          </div>
+          <div class="chat-row">
+            <div class="chat-bubble chat-bubble--in">Easy long run Sunday, 7:30. Slow pace, coffee after. Anyone in?</div>
+          </div>
+          <div class="float-card__reactions">
+            <span>♥ 12</span>
+            <span>↩ 4 replies</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Center: Two phone mockups -->
+      <div class="marchon-phones">
+        <div class="marchon-phone marchon-phone--back">
+          <div class="phone-frame">
+            <img src="https://static.wixstatic.com/media/21cb00_4bd64399ac51409ab22f72ff96d22d08~mv2.png" alt="VOLTR App Programs">
+          </div>
+        </div>
+        <div class="marchon-phone">
+          <div class="phone-frame">
+            <img src="https://static.wixstatic.com/media/21cb00_6d2bee5f1aee4a548e5b36f7be95befc~mv2.png" alt="VOLTR App Exercise">
+          </div>
+        </div>
+      </div>
+
+      <!-- Right column: Calendar -->
+      <div class="marchon-showcase__col marchon-showcase__col--right">
+        <div class="float-card float-card--calendar">
+          <div class="float-card__meta">Week 2 · BUILD</div>
+          <div class="float-card__grid">
+            <div class="float-card__day is-done">M</div>
+            <div class="float-card__day is-rest">T</div>
+            <div class="float-card__day is-done">W</div>
+            <div class="float-card__day is-rest">T</div>
+            <div class="float-card__day is-done">F</div>
+            <div class="float-card__day is-rest">S</div>
+            <div class="float-card__day is-rest">S</div>
+          </div>
+          <div class="float-card__time">3 / 4 Sessions</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FIND YOUR PLAN ===== -->
+<div class="full-white">
+  <div class="section" style="text-align: center; padding-top: 80px; padding-bottom: 80px;">
+    <h2 class="headline headline--md" style="color: #000;">Not sure which plan fits you?</h2>
+    <p class="body-text" style="margin: 24px auto 40px; color: var(--grey-mid); text-align: center;">Answer a few questions. We'll tell you where to start.</p>
+    <a href="https://quizvoltr.netlify.app" class="cta cta--dark">Find Your Plan</a>
+  </div>
+</div>
+
+<!-- ===== THE PLANS ===== -->
+<div class="full-white" style="background: var(--grey-light);">
+  <div class="section">
+    <div class="label">Programs</div>
+    <h2 class="headline headline--lg" style="color: #000;">Structured programs. One system.</h2>
+    <div class="plans-grid">
+      <div class="plan-card">
+        <div class="plan-card__image"><img src="https://static.wixstatic.com/media/21cb00_6c88981c49f44a6e978a75c0597e81de~mv2.jpg" alt="BUILD" class="media-bw-overlay"></div>
+        <div class="plan-card__name">Build</div>
+        <div class="plan-card__detail">6 Weeks. Hypertrophy.</div>
+        <div class="plan-card__detail">Progressive volume with smart load management. For serious lifters who don't need a bodybuilding program.</div>
+        <div class="plan-card__freq">3x / 4x / 5x per week</div>
+        <div class="plan-card__ctas">
+          <a href="https://voltrmvtso.mvt.so/sales-page" class="cta cta--solid">Start Now</a>
+          <a href="build.html" class="cta cta--text">Learn More →</a>
+        </div>
+      </div>
+      <div class="plan-card">
+        <div class="plan-card__image"><img src="https://static.wixstatic.com/media/21cb00_7e5b6b54033547d48cacbe7fef3141fc~mv2.jpg" alt="DRIVE" class="media-bw-overlay"></div>
+        <div class="plan-card__name">Drive</div>
+        <div class="plan-card__detail">8 Weeks. High Performance.</div>
+        <div class="plan-card__detail">Maximum efficiency for people with limited time. Every session counts. Superset-based, compound-focused, zero filler.</div>
+        <div class="plan-card__freq">3x / 4x / 5x per week</div>
+        <div class="plan-card__ctas">
+          <a href="https://voltrmvtso.mvt.so/sales-page" class="cta cta--solid">Start Now</a>
+          <a href="drive.html" class="cta cta--text">Learn More →</a>
+        </div>
+      </div>
+      <div class="plan-card">
+        <div class="plan-card__image"><img src="https://static.wixstatic.com/media/21cb00_13b472bd327b48f28fba91aab7af0475~mv2.jpg" alt="HYBRID" class="media-bw-overlay"></div>
+        <div class="plan-card__name">Hybrid</div>
+        <div class="plan-card__detail">6 Weeks. Strength + Endurance.</div>
+        <div class="plan-card__detail">Lift and run in one system. For everyone who wants both without one sabotaging the other.</div>
+        <div class="plan-card__freq">3x / 4x / 5x per week</div>
+        <div class="plan-card__ctas">
+          <a href="https://voltrmvtso.mvt.so/sales-page" class="cta cta--solid">Start Now</a>
+          <a href="hybrid.html" class="cta cta--text">Learn More →</a>
+        </div>
+      </div>
+      <div class="plan-card">
+        <div class="plan-card__image"><img src="https://static.wixstatic.com/media/21cb00_efa177c93fd54b11b40df833201ee15a~mv2.jpg" alt="RESET" class="media-bw-overlay"></div>
+        <div class="plan-card__name">Reset</div>
+        <div class="plan-card__detail">4 Weeks. Comeback.</div>
+        <div class="plan-card__detail">Clean re-entry after a break, injury, or stress. Reduced volume, progressive loading, focus on movement quality.</div>
+        <div class="plan-card__freq">3x / 4x per week</div>
+        <div class="plan-card__ctas">
+          <a href="https://voltrmvtso.mvt.so/sales-page" class="cta cta--solid">Start Now</a>
+          <a href="reset.html" class="cta cta--text">Learn More →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== WHAT'S INSIDE ===== -->
+<div class="full-black">
+  <div class="section">
+    <div class="label">Included</div>
+    <h2 class="headline headline--lg">More than a plan.</h2>
+    <ul class="features-list">
+      <li>Plans that adjust to your energy level</li>
+      <li>Equipment alternatives for every exercise</li>
+      <li>Plan-specific community groups</li>
+      <li>Direct chat access to your coach</li>
+      <li>Progression guides for every program</li>
+      <li>Workout sharing with friends</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== METHODOLOGY ===== -->
+<div class="full-white">
+  <div class="section methodology">
+    <div class="methodology-split">
+      <div class="methodology-split__image">
+        <img src="https://static.wixstatic.com/media/21cb00_9958c4d64bf94b008bf19d6693c4cf6e~mv2.jpg" alt="Training" class="media-bw-overlay">
+      </div>
+      <div>
+        <div class="label">The Method</div>
+        <h2 class="headline headline--lg" style="color: #000;">Why it works.</h2>
+        <p class="body-text">The plan adjusts to your energy level. Built-in recovery weeks so you don't burn out. Honest frequency options so you pick the version that fits your week — not the other way around.</p>
+        <p class="body-text" style="margin-top: 20px;">Written and tested by coaches who train exactly what they give you. No templates copied from the internet. No motivational fluff. Just structured programming that respects your time and your body.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PRICING ===== -->
+<div class="full-black">
+  <div class="section pricing">
+    <div class="label">Pricing</div>
+    <h2 class="headline headline--md">One price. Full access.</h2>
+    <div class="pricing__price">€49.99</div>
+    <div class="pricing__per">per month</div>
+    <div class="pricing__details">
+      7-day free trial<br>
+      All four programs included<br>
+      Community access<br>
+      Coach chat<br>
+      Cancel anytime<br>
+      No contracts. No hidden fees.
+    </div>
+    <a href="https://voltrmvtso.mvt.so/sales-page" class="cta">Start Your Free Trial</a>
+  </div>
+</div>
+
+<!-- ===== THE COACH ===== -->
+<div class="full-white">
+  <div class="section">
+    <div class="label">Founder</div>
+    <div class="coach">
+      <div class="coach__image" style="padding:0;">
+        <img src="https://static.wixstatic.com/media/21cb00_9a1f2e39d53847acb910e7cf4a47de69~mv2.jpg" alt="Lukas Plassnig" class="media-bw-overlay">
+      </div>
+      <div class="coach__text">
+        <h2 class="headline headline--lg" style="color: #000;">Built by a coach,<br>not a content team.</h2>
+        <p class="body-text">VOLTR is built by Lukas Plassnig. You're not training with an algorithm. You're training with a system built by someone who uses it every single day.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 1:1 COACHING ===== -->
+<div class="full-black section-video-bg">
+  <video autoplay muted loop playsinline class="section-video-bg__video">
+    <source src="https://video.wixstatic.com/video/21cb00_8c1388e9f7d441b6a20d9f1b4500eaa0/1080p/mp4/file.mp4" type="video/mp4">
+  </video>
+  <div class="section coaching-upsell section-video-bg__content">
+    <div class="label">Personal Coaching</div>
+    <h2 class="headline headline--md">Want more? Train with us directly.</h2>
+    <p class="body-text">Individual plan adaptation, weekly check-ins, direct access to your coach. No trial. The collaboration starts after a personal conversation.</p>
+    <div class="coaching-upsell__price">€199.99</div>
+    <div class="coaching-upsell__per">per month</div>
+    <a href="mailto:training@voltr.at" class="cta">Apply for 1:1 Coaching</a>
+  </div>
+</div>
+
+<!-- ===== PROGRESSION GRAPHIC ===== -->
+<div class="full-white">
+  <div class="progression">
+    <div class="progression__caption">Fig. 01 · Progressive Overload</div>
+    <h2 class="headline headline--lg" style="color: #000;">Stronger. Every week.</h2>
+    <p class="body-text" style="margin: 24px auto 0; color: var(--grey-mid); text-align: center;">Load, volume and intensity climb week over week. The plan tracks your RPE and adjusts so you keep progressing — in your numbers and in how you look in the mirror.</p>
+
+    <div class="progression__charts">
+      <!-- Squat -->
+      <div class="progression__panel">
+        <div class="progression__panel-meta">
+          <div class="progression__panel-title">Squat</div>
+          <div class="progression__panel-delta">1RM · 6 weeks</div>
+        </div>
+        <div class="progression__chart">
+          <div class="progression__col"><div class="progression__bar" style="height: 55%;"></div><div class="progression__label">Wk 1</div></div>
+          <div class="progression__col"><div class="progression__bar" style="height: 66%;"></div><div class="progression__label">Wk 2</div></div>
+          <div class="progression__col"><div class="progression__bar" style="height: 74%;"></div><div class="progression__label">Wk 3</div></div>
+          <div class="progression__col"><div class="progression__bar" style="height: 82%;"></div><div class="progression__label">Wk 4</div></div>
+          <div class="progression__col"><div class="progression__bar" style="height: 90%;"></div><div class="progression__label">Wk 5</div></div>
+          <div class="progression__col"><div class="progression__bar" style="height: 100%;"></div><div class="progression__label">Wk 6</div></div>
+        </div>
+      </div>
+
+      <!-- Bench -->
+      <div class="progression__panel">
+        <div class="progression__panel-meta">
+          <div class="progression__panel-title">Bench</div>
+          <div class="progression__panel-delta">1RM · 6 weeks</div>
+        </div>
+        <div class="progression__chart">
+          <div class="progression__col"><div class="progression__bar" style="height: 58%;"></div><div class="progression__label">Wk 1</div></div>
+          <div class="progression__col"><div class="progression__bar" style="height: 67%;"></div><div class="progression__label">Wk 2</div></div>
+          <div class="progression__col"><div class="progression__bar" style="height: 76%;"></div><div class="progression__label">Wk 3</div></div>
+          <div class="progression__col"><div class="progression__bar" style="height: 84%;"></div><div class="progression__label">Wk 4</div></div>
+          <div class="progression__col"><div class="progression__bar" style="height: 92%;"></div><div class="progression__label">Wk 5</div></div>
+          <div class="progression__col"><div class="progression__bar" style="height: 100%;"></div><div class="progression__label">Wk 6</div></div>
+        </div>
+      </div>
+
+      <!-- Deadlift -->
+      <div class="progression__panel">
+        <div class="progression__panel-meta">
+          <div class="progression__panel-title">Deadlift</div>
+          <div class="progression__panel-delta">1RM · 6 weeks</div>
+        </div>
+        <div class="progression__chart">
+          <div class="progression__col"><div class="progression__bar" style="height: 60%;"></div><div class="progression__label">Wk 1</div></div>
+          <div class="progression__col"><div class="progression__bar" style="height: 70%;"></div><div class="progression__label">Wk 2</div></div>
+          <div class="progression__col"><div class="progression__bar" style="height: 78%;"></div><div class="progression__label">Wk 3</div></div>
+          <div class="progression__col"><div class="progression__bar" style="height: 86%;"></div><div class="progression__label">Wk 4</div></div>
+          <div class="progression__col"><div class="progression__bar" style="height: 94%;"></div><div class="progression__label">Wk 5</div></div>
+          <div class="progression__col"><div class="progression__bar" style="height: 100%;"></div><div class="progression__label">Wk 6</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="progression__footer">Strength up. Body composition follows. The plan stays consistent — you stay honest.</div>
+  </div>
+</div>
+
+<!-- ===== FAQ ===== -->
+<div class="full-black">
+  <div class="faq">
+    <div class="faq__header">
+      <div class="label">FAQ</div>
+      <h2 class="headline headline--lg">Questions we get.</h2>
+    </div>
+
+    <details class="faq__item">
+      <summary class="faq__question">
+        Can I use all programs with one subscription?
+        <span class="faq__toggle">+</span>
+      </summary>
+      <div class="faq__answer">Yes. One subscription unlocks every program in the app — BUILD, RESET, DRIVE, HYBRID, and every program we add over time. Switch between them whenever you want.</div>
+    </details>
+
+    <details class="faq__item">
+      <summary class="faq__question">
+        How can I ask training questions?
+        <span class="faq__toggle">+</span>
+      </summary>
+      <div class="faq__answer">Every program has its own chat, moderated by a coach. Ask about form, swaps, or adjustments. You get an actual answer from us, not a bot.</div>
+    </details>
+
+    <details class="faq__item">
+      <summary class="faq__question">
+        Can I cancel anytime?
+        <span class="faq__toggle">+</span>
+      </summary>
+      <div class="faq__answer">Yes. Cancel inside the app whenever you want. No lock-in, no notice period. If you cancel within the 7-day trial, you are not charged.</div>
+    </details>
+
+    <details class="faq__item">
+      <summary class="faq__question">
+        What if I don't have a full gym?
+        <span class="faq__toggle">+</span>
+      </summary>
+      <div class="faq__answer">Every exercise has alternatives — home setup, minimal equipment, travel. Swap in-app before the session. The plan adapts to what you have.</div>
+    </details>
+
+    <details class="faq__item">
+      <summary class="faq__question">
+        Which program should I start with?
+        <span class="faq__toggle">+</span>
+      </summary>
+      <div class="faq__answer">If you're not sure, take the quiz on our site — it takes two minutes. If you're coming back from a break or high-stress phase, start with RESET. If you want size, BUILD. Short on time, DRIVE. Running in parallel, HYBRID.</div>
+    </details>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<div class="full-black">
+  <div class="footer">
+    <div class="footer__brand">VOLTR.</div>
+    <div class="footer__links">
+      <a href="mailto:training@voltr.at">training@voltr.at</a>
+      <a href="https://instagram.com/voltr.training" target="_blank">@voltr.training</a>
+    </div>
+    <div class="footer__links" style="margin-top: 12px;">
+      <a href="agb.html">AGB</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="impressum.html">Impressum</a>
+    </div>
+    <div class="footer__copy">© 2026 Lukas Plassnig e.U.</div>
+  </div>
+</div>
+
+</body>
+</html>

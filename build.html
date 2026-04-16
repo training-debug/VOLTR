@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BUILD — VOLTR.</title>
+<meta name="description" content="BUILD — 6 weeks of structured hypertrophy training. Progressive volume, smart load management, three frequency options.">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --black: #000; --white: #fff;
+    --grey-light: #f5f5f5; --grey-mid: #999; --grey-dark: #333;
+    --font: 'Outfit', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font); font-weight: 300; color: var(--white); background: var(--black); -webkit-font-smoothing: antialiased; }
+  a { text-decoration: none; color: inherit; }
+
+  .section { padding: 120px 32px; max-width: 1200px; margin: 0 auto; }
+  @media (max-width: 768px) { .section { padding: 80px 20px; } }
+
+  .cta { display: inline-block; padding: 16px 40px; border: 1px solid var(--white); color: var(--white); font-family: var(--font); font-weight: 300; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; transition: all 0.3s ease; cursor: pointer; }
+  .cta:hover { background: var(--white); color: var(--black); }
+  .cta--dark { border-color: var(--black); color: var(--black); }
+  .cta--dark:hover { background: var(--black); color: var(--white); }
+
+  .headline { font-weight: 200; letter-spacing: -0.02em; line-height: 1.1; }
+  .headline--xl { font-size: clamp(48px, 8vw, 96px); }
+  .headline--lg { font-size: clamp(32px, 4vw, 52px); }
+  .headline--md { font-size: clamp(24px, 3vw, 36px); }
+  .body-text { font-weight: 300; font-size: clamp(16px, 1.8vw, 19px); line-height: 1.7; max-width: 680px; }
+  .label { font-weight: 400; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.5; margin-bottom: 24px; }
+
+  .full-black { background: var(--black); color: var(--white); }
+  .full-white { background: var(--white); color: var(--black); }
+
+  .topnav { padding: 28px 32px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .topnav__brand { font-weight: 200; font-size: 14px; letter-spacing: 6px; text-transform: uppercase; }
+  .topnav__back { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.6; }
+  .topnav__back:hover { opacity: 1; }
+
+  .program-hero { min-height: 70vh; display: flex; align-items: center; position: relative; overflow: hidden; }
+  .program-hero__bg { position: absolute; inset: 0; z-index: 0; }
+  .program-hero__bg img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%) brightness(0.4); }
+  .program-hero__content { position: relative; z-index: 1; }
+  .program-hero__tag { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; opacity: 0.7; margin-bottom: 24px; }
+  .program-hero__name { font-weight: 200; font-size: clamp(80px, 14vw, 180px); letter-spacing: -0.02em; line-height: 1; }
+  .program-hero__sub { margin-top: 24px; font-size: clamp(18px, 2vw, 24px); opacity: 0.8; font-weight: 200; }
+
+  .spec-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; margin-top: 64px; }
+  @media (max-width: 768px) { .spec-grid { grid-template-columns: 1fr; gap: 32px; } }
+  .spec { border-top: 1px solid rgba(0,0,0,0.15); padding-top: 24px; }
+  .spec__label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.5; margin-bottom: 12px; }
+  .spec__value { font-weight: 300; font-size: 22px; color: var(--black); line-height: 1.3; }
+
+  .details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-top: 48px; }
+  @media (max-width: 768px) { .details-grid { grid-template-columns: 1fr; gap: 40px; } }
+  .detail-block h3 { font-weight: 300; font-size: 20px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; }
+  .detail-block p { font-weight: 300; font-size: 17px; line-height: 1.7; opacity: 0.8; }
+
+  .for-who { background: var(--grey-light); color: var(--black); }
+  .for-who ul { list-style: none; margin-top: 32px; }
+  .for-who ul li { font-weight: 300; font-size: 18px; padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,0.1); }
+  .for-who ul li:first-child { border-top: 1px solid rgba(0,0,0,0.1); }
+  .for-who ul li::before { content: '—'; margin-right: 16px; opacity: 0.4; }
+
+  .cta-section { text-align: center; }
+  .cta-section .cta { margin-top: 40px; }
+  .cta-section__price { font-weight: 200; font-size: clamp(48px, 6vw, 72px); letter-spacing: -1px; margin: 32px 0 8px; }
+  .cta-section__per { font-size: 14px; opacity: 0.5; letter-spacing: 2px; }
+
+  .footer { padding: 60px 32px; text-align: center; border-top: 1px solid rgba(255,255,255,0.08); }
+  .footer__brand { font-weight: 200; font-size: 18px; letter-spacing: 6px; text-transform: uppercase; margin-bottom: 24px; }
+  .footer__links { font-size: 13px; font-weight: 300; opacity: 0.4; line-height: 2; letter-spacing: 1px; }
+  .footer__links a { margin: 0 12px; }
+  .footer__copy { margin-top: 24px; font-size: 12px; opacity: 0.25; letter-spacing: 1px; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<div class="full-black">
+  <div class="topnav">
+    <a href="index.html" class="topnav__brand">VOLTR.</a>
+    <a href="index.html" class="topnav__back">← All Programs</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="full-black program-hero">
+  <div class="program-hero__bg">
+    <img src="https://static.wixstatic.com/media/21cb00_6c88981c49f44a6e978a75c0597e81de~mv2.jpg" alt="BUILD">
+  </div>
+  <div class="section program-hero__content">
+    <div class="program-hero__tag">6 Weeks · Hypertrophy</div>
+    <h1 class="program-hero__name">BUILD.</h1>
+    <p class="program-hero__sub">Visible muscle. Real strength.<br>Structured over six weeks.</p>
+    <a href="https://voltrmvtso.mvt.so/sales-page" class="cta" style="margin-top: 40px; background: var(--white); color: var(--black);">Start 7-Day Trial</a>
+  </div>
+</div>
+
+<!-- SPECS -->
+<div class="full-white">
+  <div class="section">
+    <div class="label">The Program</div>
+    <h2 class="headline headline--lg" style="color: #000;">Progressive volume.<br>Smart load management.</h2>
+    <div class="spec-grid">
+      <div class="spec">
+        <div class="spec__label">Duration</div>
+        <div class="spec__value">6 Weeks</div>
+      </div>
+      <div class="spec">
+        <div class="spec__label">Frequency</div>
+        <div class="spec__value">3x / 4x / 5x per week</div>
+      </div>
+      <div class="spec">
+        <div class="spec__label">Focus</div>
+        <div class="spec__value">Hypertrophy &amp; Strength</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DETAILS -->
+<div class="full-white" style="background: var(--grey-light);">
+  <div class="section">
+    <div class="label">What you get</div>
+    <h2 class="headline headline--lg" style="color: #000;">Built for serious lifters.<br>Not bodybuilders.</h2>
+    <div class="details-grid" style="color: var(--grey-dark);">
+      <div class="detail-block">
+        <h3 style="color: #000;">The Structure</h3>
+        <p>Six weeks split into two progressive mesocycles. Volume builds, then consolidates. Every exercise has a clear role: compound strength work, hypertrophy accessories, and targeted isolation where it matters.</p>
+      </div>
+      <div class="detail-block">
+        <h3 style="color: #000;">Pick your frequency</h3>
+        <p>Three versions of the same program. 3x per week if you have limited time or recovery. 4x for balanced progress. 5x for maximum volume. Same progression logic, different dose.</p>
+      </div>
+      <div class="detail-block">
+        <h3 style="color: #000;">Equipment flexibility</h3>
+        <p>Every lift has alternatives. Full gym setup, home gym with basics, or travel week with minimal equipment. You don't skip the session. You adapt it.</p>
+      </div>
+      <div class="detail-block">
+        <h3 style="color: #000;">Built-in recovery</h3>
+        <p>Week 4 is structured as a deload — lower volume, same movement patterns. Not optional. Not weakness. The reason the gains stick.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOR WHO -->
+<div class="for-who">
+  <div class="section">
+    <div class="label">Who it's for</div>
+    <h2 class="headline headline--lg" style="color: #000;">This is for you if…</h2>
+    <ul>
+      <li>You've trained consistently for at least 6 months</li>
+      <li>You want visible muscle growth, not just "getting in shape"</li>
+      <li>You have access to a gym or solid home setup</li>
+      <li>You want structure, not another list of workouts</li>
+      <li>You're okay with being honest about how hard a set actually was</li>
+    </ul>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="full-black" style="position: relative; overflow: hidden;">
+  <div style="position: absolute; inset: 0; z-index: 0;">
+    <img src="https://static.wixstatic.com/media/21cb00_57a7146ad0294b5a8e8ac7157b1ee318~mv2.jpg" alt="BUILD Progression Guide" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%) brightness(0.25); opacity: 0.5;">
+  </div>
+  <div class="section cta-section" style="position: relative; z-index: 1;">
+    <div class="label">Start</div>
+    <h2 class="headline headline--lg">Seven days free.<br>Then €49.99 a month.</h2>
+    <div class="cta-section__price">€49.99</div>
+    <div class="cta-section__per">per month · cancel anytime</div>
+    <a href="https://voltrmvtso.mvt.so/sales-page" class="cta" style="margin-top: 48px;">Start 7-Day Trial</a>
+    <div style="margin-top: 32px; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.5;">Included: BUILD Progression Guide</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="full-black">
+  <div class="footer">
+    <div class="footer__brand">VOLTR.</div>
+    <div class="footer__links">
+      <a href="mailto:training@voltr.at">training@voltr.at</a>
+      <a href="https://instagram.com/voltr.training" target="_blank">@voltr.training</a>
+    </div>
+    <div class="footer__links" style="margin-top: 12px;">
+      <a href="agb.html">AGB</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="impressum.html">Impressum</a>
+    </div>
+    <div class="footer__copy">© 2026 Lukas Plassnig e.U.</div>
+  </div>
+</div>
+
+</body>
+</html>
