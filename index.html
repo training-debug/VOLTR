@@ -867,6 +867,80 @@
     z-index: 1;
   }
 
+  /* ===== CHECKOUT POPUP ===== */
+  .checkout-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .checkout-overlay.is-visible {
+    display: flex;
+    opacity: 1;
+  }
+  .checkout-overlay.is-closing {
+    opacity: 0;
+  }
+  .checkout-popup {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    height: 90vh;
+    max-height: 720px;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 40px 120px rgba(0,0,0,0.6);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+  }
+  .checkout-overlay.is-visible .checkout-popup {
+    transform: translateY(0);
+  }
+  .checkout-popup__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 10;
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: rgba(0,0,0,0.06);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font);
+    font-size: 18px;
+    font-weight: 200;
+    color: #333;
+    transition: background 0.2s ease;
+  }
+  .checkout-popup__close:hover {
+    background: rgba(0,0,0,0.12);
+  }
+  .checkout-popup iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  @media (max-width: 560px) {
+    .checkout-popup {
+      max-width: 100%;
+      height: 100vh;
+      max-height: 100vh;
+      border-radius: 0;
+    }
+  }
+
   /* ===== FOOTER ===== */
   .footer {
     padding: 60px 32px;
@@ -916,7 +990,7 @@
       <div class="hero__brand" style="color: #888; opacity: 1;">VOLTR.</div>
       <h1 class="headline headline--xl">Training that fits<br>your week. Not the<br>other way around.</h1>
       <p class="hero__sub">Structured programs for people with real lives. Plans that adjust to your week. Seven days free.</p>
-      <a href="https://voltrmvtso.mvt.so/sales-page" class="cta">Start 7-Day Trial</a>
+      <a href="#" class="cta" onclick="openCheckout(event)">Start 7-Day Trial</a>
     </div>
   </div>
 </div>
@@ -1036,7 +1110,7 @@
         <div class="plan-card__detail">Progressive volume with smart load management. For serious lifters who don't need a bodybuilding program.</div>
         <div class="plan-card__freq">3x / 4x / 5x per week</div>
         <div class="plan-card__ctas">
-          <a href="https://voltrmvtso.mvt.so/sales-page" class="cta cta--solid">Start Now</a>
+          <a href="#" class="cta cta--solid" onclick="openCheckout(event)">Start Now</a>
           <a href="build.html" class="cta cta--text">Learn More →</a>
         </div>
       </div>
@@ -1047,7 +1121,7 @@
         <div class="plan-card__detail">Maximum efficiency for people with limited time. Every session counts. Superset-based, compound-focused, zero filler.</div>
         <div class="plan-card__freq">3x / 4x / 5x per week</div>
         <div class="plan-card__ctas">
-          <a href="https://voltrmvtso.mvt.so/sales-page" class="cta cta--solid">Start Now</a>
+          <a href="#" class="cta cta--solid" onclick="openCheckout(event)">Start Now</a>
           <a href="drive.html" class="cta cta--text">Learn More →</a>
         </div>
       </div>
@@ -1058,7 +1132,7 @@
         <div class="plan-card__detail">Lift and run in one system. For everyone who wants both without one sabotaging the other.</div>
         <div class="plan-card__freq">3x / 4x / 5x per week</div>
         <div class="plan-card__ctas">
-          <a href="https://voltrmvtso.mvt.so/sales-page" class="cta cta--solid">Start Now</a>
+          <a href="#" class="cta cta--solid" onclick="openCheckout(event)">Start Now</a>
           <a href="hybrid.html" class="cta cta--text">Learn More →</a>
         </div>
       </div>
@@ -1069,7 +1143,7 @@
         <div class="plan-card__detail">Clean re-entry after a break, injury, or stress. Reduced volume, progressive loading, focus on movement quality.</div>
         <div class="plan-card__freq">3x / 4x per week</div>
         <div class="plan-card__ctas">
-          <a href="https://voltrmvtso.mvt.so/sales-page" class="cta cta--solid">Start Now</a>
+          <a href="#" class="cta cta--solid" onclick="openCheckout(event)">Start Now</a>
           <a href="reset.html" class="cta cta--text">Learn More →</a>
         </div>
       </div>
@@ -1125,7 +1199,7 @@
       Cancel anytime<br>
       No contracts. No hidden fees.
     </div>
-    <a href="https://voltrmvtso.mvt.so/sales-page" class="cta">Start Your Free Trial</a>
+    <a href="#" class="cta" onclick="openCheckout(event)">Start Your Free Trial</a>
   </div>
 </div>
 
@@ -1287,6 +1361,44 @@
     <div class="footer__copy">© 2026 Lukas Plassnig e.U.</div>
   </div>
 </div>
+
+<!-- ===== CHECKOUT POPUP ===== -->
+<div class="checkout-overlay" id="checkoutOverlay">
+  <div class="checkout-popup">
+    <button class="checkout-popup__close" onclick="closeCheckout()" aria-label="Close">✕</button>
+    <iframe id="checkoutFrame" src="" allow="payments fullscreen" loading="lazy"></iframe>
+  </div>
+</div>
+
+<script>
+  const overlay = document.getElementById('checkoutOverlay');
+  const frame = document.getElementById('checkoutFrame');
+  const checkoutUrl = 'https://voltrmvtso.mvt.so/buy/20155';
+
+  function openCheckout(e) {
+    if (e) e.preventDefault();
+    frame.src = checkoutUrl;
+    overlay.classList.add('is-visible');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeCheckout() {
+    overlay.classList.add('is-closing');
+    setTimeout(function() {
+      overlay.classList.remove('is-visible', 'is-closing');
+      frame.src = '';
+      document.body.style.overflow = '';
+    }, 300);
+  }
+
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) closeCheckout();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && overlay.classList.contains('is-visible')) closeCheckout();
+  });
+</script>
 
 </body>
 </html>
