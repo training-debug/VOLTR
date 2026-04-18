@@ -75,6 +75,15 @@
   .footer__links { font-size: 13px; font-weight: 300; opacity: 0.4; line-height: 2; letter-spacing: 1px; }
   .footer__links a { margin: 0 12px; }
   .footer__copy { margin-top: 24px; font-size: 12px; opacity: 0.25; letter-spacing: 1px; }
+  .checkout-overlay { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; }
+  .checkout-overlay.is-visible { display: flex; opacity: 1; }
+  .checkout-overlay.is-closing { opacity: 0; }
+  .checkout-popup { position: relative; width: 100%; max-width: 520px; height: 90vh; max-height: 720px; background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 40px 120px rgba(0,0,0,0.6); transform: translateY(20px); transition: transform 0.3s ease; }
+  .checkout-overlay.is-visible .checkout-popup { transform: translateY(0); }
+  .checkout-popup__close { position: absolute; top: 16px; right: 16px; z-index: 10; width: 36px; height: 36px; border: none; background: rgba(0,0,0,0.06); border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 200; color: #333; transition: background 0.2s ease; }
+  .checkout-popup__close:hover { background: rgba(0,0,0,0.12); }
+  .checkout-popup iframe { width: 100%; height: 100%; border: none; }
+  @media (max-width: 560px) { .checkout-popup { max-width: 100%; height: 100vh; max-height: 100vh; border-radius: 0; } }
 </style>
 </head>
 <body>
@@ -96,7 +105,7 @@
     <div class="program-hero__tag">6 Weeks · Hypertrophy</div>
     <h1 class="program-hero__name">BUILD.</h1>
     <p class="program-hero__sub">Visible muscle. Real strength.<br>Structured over six weeks.</p>
-    <a href="https://voltrmvtso.mvt.so/sales-page" class="cta" style="margin-top: 40px; background: var(--white); color: var(--black);">Start 7-Day Trial</a>
+    <a href="#" class="cta" style="margin-top: 40px; background: var(--white); color: var(--black);" onclick="openCheckout(event)">Start 7-Day Trial</a>
   </div>
 </div>
 
@@ -173,7 +182,7 @@
     <h2 class="headline headline--lg">Seven days free.<br>Then €49.99 a month.</h2>
     <div class="cta-section__price">€49.99</div>
     <div class="cta-section__per">per month · cancel anytime</div>
-    <a href="https://voltrmvtso.mvt.so/sales-page" class="cta" style="margin-top: 48px;">Start 7-Day Trial</a>
+    <a href="#" class="cta" style="margin-top: 48px;" onclick="openCheckout(event)">Start 7-Day Trial</a>
     <div style="margin-top: 32px; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.5;">Included: BUILD Progression Guide</div>
   </div>
 </div>
@@ -194,6 +203,24 @@
     <div class="footer__copy">© 2026 Lukas Plassnig e.U.</div>
   </div>
 </div>
+
+<!-- CHECKOUT POPUP -->
+<div class="checkout-overlay" id="checkoutOverlay">
+  <div class="checkout-popup">
+    <button class="checkout-popup__close" onclick="closeCheckout()" aria-label="Close">✕</button>
+    <iframe id="checkoutFrame" src="" allow="payments fullscreen" loading="lazy"></iframe>
+  </div>
+</div>
+
+<script>
+  const overlay = document.getElementById('checkoutOverlay');
+  const frame = document.getElementById('checkoutFrame');
+  const checkoutUrl = 'https://voltrmvtso.mvt.so/buy/20155';
+  function openCheckout(e) { if (e) e.preventDefault(); frame.src = checkoutUrl; overlay.classList.add('is-visible'); document.body.style.overflow = 'hidden'; }
+  function closeCheckout() { overlay.classList.add('is-closing'); setTimeout(function() { overlay.classList.remove('is-visible', 'is-closing'); frame.src = ''; document.body.style.overflow = ''; }, 300); }
+  overlay.addEventListener('click', function(e) { if (e.target === overlay) closeCheckout(); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && overlay.classList.contains('is-visible')) closeCheckout(); });
+</script>
 
 </body>
 </html>
