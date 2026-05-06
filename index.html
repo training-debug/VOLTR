@@ -62,7 +62,7 @@ a{text-decoration:none;color:inherit}
 .hero .cta{margin-top:44px}
 .hero__br{font-weight:200;font-size:14px;letter-spacing:6px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:44px}
 .hero__vid{position:absolute;inset:0;background:#000;overflow:hidden;z-index:0}
-.hero__vid video{width:100%;height:100%;object-fit:cover;opacity:.4;filter:grayscale(100%) brightness(.85);will-change:transform}
+.hero__vid video{width:100%;height:100%;object-fit:cover;opacity:.45;filter:grayscale(100%) brightness(.9);will-change:transform}
 @media(max-width:768px){.hero .s{padding-top:140px;padding-bottom:100px}}
 
 .fw{background:var(--wh);color:var(--bk)}
@@ -132,7 +132,7 @@ a{text-decoration:none;color:inherit}
 .hiw__hd{text-align:center;margin-bottom:64px}
 .hiw__g{display:grid;grid-template-columns:repeat(4,1fr);gap:48px}
 .hiw__step{text-align:center}
-.hiw__num{font-size:40px;font-weight:200;color:rgba(255,255,255,.12);letter-spacing:-1px;margin-bottom:16px;line-height:1}
+.hiw__num{font-size:40px;font-weight:200;color:rgba(255,255,255,.25);letter-spacing:-1px;margin-bottom:16px;line-height:1}
 .hiw__title{font-size:15px;font-weight:400;letter-spacing:1px;margin-bottom:8px;color:rgba(255,255,255,.9)}
 .hiw__desc{font-size:13px;font-weight:300;color:rgba(255,255,255,.4);line-height:1.6}
 @media(max-width:768px){.hiw__g{grid-template-columns:repeat(2,1fr);gap:32px}.hiw{padding:80px 20px}}
@@ -195,12 +195,13 @@ a{text-decoration:none;color:inherit}
 .vb-l{display:flex;gap:6px}
 .vb-l span{flex:1;text-align:center;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.25)}
 
-/* Consistency Dots */
-.dots{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-bottom:16px}
-.dot{aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,.06);transition:background .4s,box-shadow .4s}
-.dot.f{background:rgba(255,255,255,.08)}
-.dots.an .dot.f{background:rgba(255,255,255,.75)}
-.dots.an .dot.f.gw{box-shadow:0 0 8px rgba(255,255,255,.12)}
+/* Consistency Week Heatmap */
+.wkh__l{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-bottom:6px}
+.wkh__l span{text-align:center;font-size:9px;letter-spacing:1.5px;color:rgba(255,255,255,.3);font-weight:400}
+.wkh__r{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-bottom:5px}
+.wkh__d{aspect-ratio:1;border-radius:6px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);transition:all .5s var(--eo)}
+.wkh__d.f{background:rgba(255,255,255,.06)}
+.wkh.an .wkh__d.f{background:rgba(255,255,255,.8);border-color:rgba(255,255,255,.9);box-shadow:0 0 6px rgba(255,255,255,.08)}
 
 /* METHODOLOGY */
 .msplit{display:flex;gap:80px;align-items:center}
@@ -374,7 +375,7 @@ a{text-decoration:none;color:inherit}
   .hiw{padding:48px 20px}
   .hiw__hd{margin-bottom:24px}
   .hiw__g{grid-template-columns:1fr 1fr;gap:16px}
-  .hiw__num{font-size:24px;margin-bottom:4px}
+  .hiw__num{font-size:24px;margin-bottom:4px;color:rgba(255,255,255,.35)}
   .hiw__title{font-size:12px;letter-spacing:.5px}
   .hiw__desc{font-size:11px;line-height:1.5}
 
@@ -388,7 +389,7 @@ a{text-decoration:none;color:inherit}
   .pc__dt{font-size:13px;line-height:1.5}
   .pc__fr{font-size:11px;margin-bottom:14px}
   .pc .cta{font-size:11px;padding:10px 24px}
-  .pc .cta--t{display:none}
+  .pc .cta--t{font-size:10px;padding:8px 0}
 
   /* --- FEATURES --- */
   .fl li{padding:14px 0;font-size:15px}
@@ -483,7 +484,7 @@ a{text-decoration:none;color:inherit}
 
 <!-- HERO -->
 <div class="fb" style="position:relative;">
-  <div class="hero__vid"><video autoplay muted loop playsinline id="hv" preload="auto">
+  <div class="hero__vid"><video autoplay muted loop playsinline webkit-playsinline id="hv" preload="auto" poster="https://static.wixstatic.com/media/21cb00_5ddab3e026ee4cc69230db1460d2fde4~mv2.jpg">
     <source src="https://video.wixstatic.com/video/21cb00_8c1388e9f7d441b6a20d9f1b4500eaa0/720p/mp4/file.mp4" type="video/mp4">
   </video></div>
   <div class="hero">
@@ -544,6 +545,7 @@ a{text-decoration:none;color:inherit}
 <!-- INTERSTITIAL -->
 <div class="fb inter">
   <p class="inter__t rv">Finally. Training that respects<br>your time and your body.</p>
+  <p class="rv d2" style="margin-top:24px;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.25);text-align:center;">One membership. All programs. 7 days free.</p>
 </div>
 
 <!-- APP SHOWCASE -->
@@ -571,7 +573,7 @@ a{text-decoration:none;color:inherit}
       </div>
       <div class="phs">
         <div class="ph rvs"><div class="pf"><img src="https://static.wixstatic.com/media/21cb00_4bd64399ac51409ab22f72ff96d22d08~mv2.png" alt="VOLTR App" loading="lazy"></div></div>
-        <div class="ph rvs d2"><div class="pf"><video autoplay muted loop playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;"><source src="app-preview.mp4" type="video/mp4"></video></div></div>
+        <div class="ph rvs d2"><div class="pf"><video autoplay muted loop playsinline webkit-playsinline preload="auto" style="width:100%;height:100%;object-fit:cover;"><source src="app-preview.mp4" type="video/mp4"></video></div></div>
       </div>
       <div class="show__col show__col--r">
         <div class="fc fc--c rvr">
@@ -742,13 +744,14 @@ a{text-decoration:none;color:inherit}
         <div class="dv__lb">Consistency</div>
         <div class="dv__ttl">Show up. Stay on track.</div>
         <div class="dv__sub">Sessions completed across 4 weeks.</div>
-        <div class="dots" id="dots">
-          <div class="dot f"></div><div class="dot f"></div><div class="dot"></div><div class="dot f"></div><div class="dot f"></div><div class="dot"></div><div class="dot"></div>
-          <div class="dot f"></div><div class="dot f"></div><div class="dot f"></div><div class="dot"></div><div class="dot f"></div><div class="dot f"></div><div class="dot"></div>
-          <div class="dot f"></div><div class="dot"></div><div class="dot f"></div><div class="dot f"></div><div class="dot f"></div><div class="dot"></div><div class="dot f"></div>
-          <div class="dot f"></div><div class="dot f"></div><div class="dot f"></div><div class="dot"></div><div class="dot f"></div><div class="dot f"></div><div class="dot f"></div>
+        <div class="wkh" id="wkh">
+          <div class="wkh__l"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
+          <div class="wkh__r" data-w="1"><div class="wkh__d f"></div><div class="wkh__d f"></div><div class="wkh__d"></div><div class="wkh__d f"></div><div class="wkh__d f"></div><div class="wkh__d"></div><div class="wkh__d"></div></div>
+          <div class="wkh__r" data-w="2"><div class="wkh__d f"></div><div class="wkh__d f"></div><div class="wkh__d f"></div><div class="wkh__d"></div><div class="wkh__d f"></div><div class="wkh__d f"></div><div class="wkh__d"></div></div>
+          <div class="wkh__r" data-w="3"><div class="wkh__d f"></div><div class="wkh__d"></div><div class="wkh__d f"></div><div class="wkh__d f"></div><div class="wkh__d f"></div><div class="wkh__d"></div><div class="wkh__d f"></div></div>
+          <div class="wkh__r" data-w="4"><div class="wkh__d f"></div><div class="wkh__d f"></div><div class="wkh__d f"></div><div class="wkh__d"></div><div class="wkh__d f"></div><div class="wkh__d f"></div><div class="wkh__d f"></div></div>
         </div>
-        <p style="margin-top:12px;font-size:11px;letter-spacing:1.5px;color:rgba(255,255,255,.25);text-transform:uppercase;text-align:center;">Your schedule. Your pace.</p>
+        <p style="margin-top:14px;font-size:11px;letter-spacing:1.5px;color:rgba(255,255,255,.25);text-transform:uppercase;text-align:center;">Your schedule. Your pace.</p>
       </div>
     </div>
   </div>
@@ -965,10 +968,23 @@ var vA=false,vC=document.getElementById('volCard');
 var vO=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting&&!vA){vA=true;document.getElementById('vb').classList.add('an')}})},{threshold:.3});
 if(vC)vO.observe(vC);
 
-// Dots
+// Consistency Heatmap
 var dA=false,dC=document.getElementById('dotCard');
-var dO=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting&&!dA){dA=true;var g=document.getElementById('dots');g.classList.add('an');g.querySelectorAll('.dot.f').forEach(function(d,i){setTimeout(function(){d.classList.add('gw')},i*50)})}})},{threshold:.3});
+var dO=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting&&!dA){dA=true;var g=document.getElementById('wkh');g.classList.add('an');var cells=g.querySelectorAll('.wkh__d.f');cells.forEach(function(c,i){c.style.transitionDelay=(i*.04)+'s'})}})},{threshold:.3});
 if(dC)dO.observe(dC);
+
+/* VIDEO AUTOPLAY FALLBACK — iOS Safari sometimes blocks autoplay */
+function tryPlay(){document.querySelectorAll('video[autoplay]').forEach(function(v){if(v.paused){var p=v.play();if(p)p.catch(function(){})}});}
+/* Try on load */
+tryPlay();
+/* Try on first interaction as fallback */
+var played=false;
+function onFirst(){if(!played){played=true;tryPlay();document.removeEventListener('touchstart',onFirst);document.removeEventListener('scroll',onFirst)}}
+document.addEventListener('touchstart',onFirst,{passive:true,once:true});
+document.addEventListener('scroll',onFirst,{passive:true,once:true});
+/* Also try when videos become visible */
+var vidObs=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting&&e.target.paused){var p=e.target.play();if(p)p.catch(function(){})}})},{threshold:.1});
+document.querySelectorAll('video[autoplay]').forEach(function(v){vidObs.observe(v)});
 </script>
 </body>
 </html>
