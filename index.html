@@ -297,6 +297,170 @@ a{text-decoration:none;color:inherit}
 .mcta__n{margin-top:6px;font-size:11px;color:rgba(255,255,255,.35);letter-spacing:.5px}
 @media(max-width:768px){.mcta{display:block}}
 @media(min-width:769px){.mcta{display:none!important}}
+
+/* ========== MOBILE OVERHAUL ========== */
+@media(max-width:768px){
+  /* Tighter sections globally */
+  .s{padding:60px 20px}
+
+  /* Hide inline CTAs on mobile — sticky handles conversion */
+  .m-h{display:none!important}
+
+  /* Nav: hide CTA when scrolled (sticky bottom takes over) */
+  .nav.sc .nav__c{opacity:0;pointer-events:none;transition:opacity .3s}
+  .nav{padding:14px 20px}
+  .nav.sc{padding:10px 20px}
+
+  /* HERO: brighter, tighter, focused */
+  .hero{min-height:auto}
+  .hero .s{padding-top:120px;padding-bottom:72px}
+  .hero__vid video{opacity:.5;filter:grayscale(100%) brightness(.9)}
+  .h--xl{font-size:34px}
+  .hero__sub{font-size:15px;margin-top:20px;max-width:100%}
+  .hero .cta{margin-top:28px;width:100%;text-align:center;padding:16px}
+  .hero__br{margin-bottom:28px;font-size:11px;letter-spacing:5px}
+
+  /* Proof bar: tight single line */
+  .proof{padding:14px 16px}
+  .proof__in{gap:10px}
+  .proof__i{font-size:9px;letter-spacing:1.5px}
+  .proof__d{width:3px;height:3px}
+
+  /* Trust strip: compact */
+  .trust{padding:32px 20px}
+  .trust__g{gap:16px}
+  .trust__q{font-size:14px;line-height:1.5}
+  .trust__n{font-size:9px}
+
+  /* Problem: tighter */
+
+  /* Interstitial: smaller breathing room, not a scroll desert */
+  .inter{min-height:auto;padding:44px 24px}
+  .inter__t{font-size:20px;line-height:1.45}
+
+  /* APP SHOWCASE: one phone, one card, focused */
+  .show{padding:60px 0 72px}
+  .show__hd{margin-bottom:32px}
+  .show__hd .bt{font-size:14px}
+  .show__st{gap:20px}
+  .phs .ph:nth-child(2){display:none}
+  .ph{width:220px}
+  .show__col--r{display:none}
+  .show__col--l .fc:nth-child(2){display:none}
+  .fc{padding:16px 18px;border-radius:16px;max-width:280px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+  .cb{font-size:13px;padding:10px 14px}
+
+  /* HOW IT WORKS: 2x2 grid, compact */
+  .hiw{padding:52px 20px}
+  .hiw__hd{margin-bottom:28px}
+  .hiw__g{grid-template-columns:1fr 1fr;gap:16px}
+  .hiw__num{font-size:26px;margin-bottom:6px}
+  .hiw__title{font-size:12px;letter-spacing:.5px}
+  .hiw__desc{font-size:11px;line-height:1.5}
+
+  /* Quiz: compact */
+  .fw > .s[style*="padding-top:80px"]{padding-top:48px!important;padding-bottom:48px!important}
+
+  /* PLANS: focused cards */
+  .pgrid{gap:28px;margin-top:32px}
+  .pc{padding-bottom:28px}
+  .pc__img{aspect-ratio:16/10}
+  .pc__nm{font-size:20px;letter-spacing:3px;margin-bottom:8px}
+  .pc__dt{font-size:13px;line-height:1.5}
+  .pc__fr{font-size:11px;margin-bottom:16px}
+  .pc .cta{font-size:11px;padding:10px 24px}
+  .pc .cta--t{display:none}
+
+  /* Features: tighter list */
+  .fl li{padding:14px 0;font-size:15px}
+
+  /* DATA VIZ: compact cards */
+  .dv{padding:52px 20px}
+  .dv__hd{margin-bottom:32px}
+  .dv__g{gap:14px}
+  .dv__c{padding:22px 20px;border-radius:16px}
+  .dv__lb{font-size:9px;letter-spacing:2.5px;margin-bottom:14px}
+  .dv__ttl{font-size:16px}
+  .dv__sub{font-size:12px;margin-bottom:20px}
+
+  /* Methodology: tighter */
+  .msplit{gap:24px}
+  .msplit__img{height:260px}
+  .meth .bt{font-size:15px}
+
+  /* PRICING: focused, no bg video on mobile */
+  .prw__vid{display:none}
+  .pr__amt{font-size:44px}
+  .pr__details{font-size:13px;line-height:1.9;margin:24px auto}
+  .ptog__b{padding:8px 20px;font-size:11px}
+
+  /* Founder: tighter */
+  .founder{gap:24px}
+  .founder__img{height:280px}
+  .founder__txt .h--lg{font-size:24px!important}
+  .founder__txt .bt{font-size:14px;line-height:1.65}
+
+  /* 1:1 Coaching: compact */
+  .vidbg__v{display:none}
+  .ups .bt{font-size:14px}
+  .ups__pr{font-size:26px}
+
+  /* Testimonials: 2 max, tighter */
+  .tg{gap:14px}
+  .tg .tc:nth-child(3){display:none}
+  .tc{padding:20px}
+  .tc__t{font-size:14px;margin-bottom:16px}
+  .tc__s{margin-bottom:12px}
+
+  /* FAQ: compact */
+  .faq{padding:52px 20px}
+  .faq__hd{margin-bottom:32px}
+  .faq__i{padding:18px 0}
+  .faq__q{font-size:16px;gap:16px}
+  .faq__a{font-size:13px;margin-top:12px}
+
+  /* Final CTA: focused */
+  .fcta{padding:72px 20px}
+  .fcta .h--lg{font-size:28px}
+  .fcta .bt{font-size:14px}
+
+  /* Footer: compact */
+  .ft{padding:36px 20px}
+  .ft__b{font-size:14px;letter-spacing:5px;margin-bottom:16px}
+  .ft__l{font-size:12px}
+  .ft__c{margin-top:16px;font-size:10px}
+
+  /* STICKY CTA: premium, smooth, safe-area aware */
+  .mcta{padding:10px 16px calc(env(safe-area-inset-bottom, 8px) + 10px);background:rgba(0,0,0,.96);backdrop-filter:blur(28px) saturate(160%);-webkit-backdrop-filter:blur(28px) saturate(160%);border-top:1px solid rgba(255,255,255,.06)}
+  .mcta__b{font-weight:400;letter-spacing:2.5px;font-size:12px;padding:13px}
+  .mcta__n{font-size:10px;margin-top:5px}
+
+  /* Less animation on mobile — performance is premium */
+  .rv{transform:translateY(14px);transition-duration:.55s}
+  .rvl,.rvr{transform:none;opacity:0;transition-duration:.55s}
+  .rvs{transform:scale(.98);transition-duration:.55s}
+  .d3,.d4,.d5{transition-delay:0s!important}
+
+  /* Body bottom padding for sticky CTA */
+  body{padding-bottom:68px}
+
+  /* Type scale adjustments */
+  .h--lg{font-size:26px}
+  .h--md{font-size:20px}
+  .bt{font-size:15px;line-height:1.65}
+  .lb{font-size:10px;letter-spacing:2.5px;margin-bottom:16px}
+}
+
+/* Small phones (iPhone SE, etc) */
+@media(max-width:380px){
+  .h--xl{font-size:28px}
+  .hero .s{padding-top:100px;padding-bottom:60px}
+  .proof__d{display:none}
+  .proof__in{gap:6px}
+  .proof__i{font-size:8px}
+  .ph{width:180px}
+  .hiw__g{grid-template-columns:1fr;gap:14px}
+}
 </style>
 </head>
 <body>
@@ -364,7 +528,7 @@ a{text-decoration:none;color:inherit}
     <h2 class="h h--lg rv d1">Most plans are built<br>for a life you don't have.</h2>
     <p class="bt rv d2" style="color:rgba(255,255,255,.7);">Too many sessions. Too much volume. No flexibility when the week goes sideways. The plan didn't fail. It was never built for your life.</p>
     <p class="bt rv d3" style="margin-top:20px;color:rgba(255,255,255,.7);">VOLTR is different. Plans that adapt to your energy level. Honest frequency options. Structured progression that holds up when life gets real.</p>
-    <a href="#" class="cta cta--f rv d4" onclick="openCO(event)" style="margin-top:40px;">Start Free Trial</a>
+    <a href="#" class="cta cta--f rv d4 m-h" onclick="openCO(event)" style="margin-top:40px;">Start Free Trial</a>
   </div>
 </div>
 
@@ -410,7 +574,7 @@ a{text-decoration:none;color:inherit}
         </div>
       </div>
     </div>
-    <div class="rv d3" style="text-align:center;margin-top:64px;">
+    <div class="rv d3 m-h" style="text-align:center;margin-top:64px;">
       <a href="#" class="cta cta--f" onclick="openCO(event)">Start Free Trial</a>
       <p style="margin-top:12px;font-size:12px;font-weight:300;opacity:.4;">7 days free. Cancel anytime.</p>
     </div>
@@ -500,7 +664,7 @@ a{text-decoration:none;color:inherit}
         <div class="pc__ct"><a href="#" class="cta cta--s" onclick="openCO(event)">Start Free Trial</a><a href="reset.html" class="cta cta--t">Learn More &#8594;</a></div>
       </div>
     </div>
-    <div class="rv" style="text-align:center;margin-top:64px;">
+    <div class="rv m-h" style="text-align:center;margin-top:64px;">
       <a href="#" class="cta cta--df" onclick="openCO(event)">Start Free Trial</a>
       <p style="margin-top:12px;font-size:12px;font-weight:300;color:var(--gm);">One subscription. All programs. 7 days free.</p>
     </div>
@@ -521,7 +685,7 @@ a{text-decoration:none;color:inherit}
       <li>Progression guides for every program</li>
       <li>Workout sharing</li>
     </ul>
-    <a href="#" class="cta cta--f rv" style="margin-top:48px;" onclick="openCO(event)">Start Free Trial</a>
+    <a href="#" class="cta cta--f rv m-h" style="margin-top:48px;" onclick="openCO(event)">Start Free Trial</a>
   </div>
 </div>
 
@@ -591,7 +755,7 @@ a{text-decoration:none;color:inherit}
         <h2 class="h h--lg rv d1" style="color:#000;">Why it works.</h2>
         <p class="bt rv d2">The plan adapts to your energy level. Built-in recovery weeks so you don't burn out. Honest frequency options so you choose the version that fits your week.</p>
         <p class="bt rv d3" style="margin-top:20px;">Written and tested by coaches who train what they program. No internet templates. No filler. A structured program that respects your time and your body.</p>
-        <a href="#" class="cta cta--df rv d4" onclick="openCO(event)" style="margin-top:40px;">Start Free Trial</a>
+        <a href="#" class="cta cta--df rv d4 m-h" onclick="openCO(event)" style="margin-top:40px;">Start Free Trial</a>
       </div>
     </div>
   </div>
@@ -678,7 +842,7 @@ a{text-decoration:none;color:inherit}
         <p class="tc__a">David · since 2024</p>
       </div>
     </div>
-    <div class="rv" style="text-align:center;margin-top:56px;">
+    <div class="rv m-h" style="text-align:center;margin-top:56px;">
       <a href="#" class="cta cta--df" onclick="openCO(event)">Start Free Trial</a>
     </div>
   </div>
@@ -699,7 +863,7 @@ a{text-decoration:none;color:inherit}
     <details class="faq__i rv"><summary class="faq__q">Am I too much of a beginner for VOLTR?<span class="faq__tog">+</span></summary><div class="faq__a">RESET is designed as a re-entry program. If you've trained regularly before, it fits. Every exercise has a demo video, you're always guided. If you've never been in a gym, we honestly recommend a few months of basics first.</div></details>
     <details class="faq__i rv"><summary class="faq__q">What is RPE?<span class="faq__tog">+</span></summary><div class="faq__a">Rate of Perceived Exertion. A scale from 1-10 that describes how hard a set was. RPE 8 means you could have done 2 more reps. This way the weight automatically adjusts to how you feel that day.</div></details>
     <details class="faq__i rv"><summary class="faq__q">What happens after the trial?<span class="faq__tog">+</span></summary><div class="faq__a">Your trial automatically converts to a subscription. €49.99 per month. You can cancel anytime before and pay nothing. No fine print.</div></details>
-    <div class="rv" style="text-align:center;margin-top:48px;">
+    <div class="rv m-h" style="text-align:center;margin-top:48px;">
       <a href="#" class="cta cta--f" onclick="openCO(event)">Start Free Trial</a>
       <p style="margin-top:12px;font-size:12px;font-weight:300;opacity:.35;">7 days free. Cancel anytime.</p>
     </div>
@@ -763,9 +927,12 @@ var fl=document.getElementById('fl');
 var fo=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting)e.target.classList.add('v')})},{threshold:.2});
 if(fl)fo.observe(fl);
 
-/* MOBILE CTA */
-var mc=document.getElementById('mcta');
-var mo=new IntersectionObserver(function(en){en.forEach(function(e){mc.classList.toggle('vi',!e.isIntersecting)})},{threshold:0});
+/* MOBILE CTA — delayed smooth entrance */
+var mc=document.getElementById('mcta'),mcTimer=null;
+var mo=new IntersectionObserver(function(en){en.forEach(function(e){
+  if(!e.isIntersecting){if(!mcTimer)mcTimer=setTimeout(function(){mc.classList.add('vi')},800)}
+  else{if(mcTimer){clearTimeout(mcTimer);mcTimer=null}mc.classList.remove('vi')}
+})},{threshold:0});
 var he=document.querySelector('.hero');
 if(he&&mc)mo.observe(he);
 
