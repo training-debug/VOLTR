@@ -102,7 +102,7 @@ a{text-decoration:none;color:inherit}
 .ph .pf{border:1px solid rgba(255,255,255,.2);border-radius:32px;background:#000;box-shadow:0 40px 100px rgba(0,0,0,.5),0 0 50px rgba(255,255,255,.04);aspect-ratio:9/19.5;overflow:hidden}
 .ph .pf::before{display:none}
 .ph .pf img,.ph .pf video{width:100%;height:100%;object-fit:cover;display:block}
-@media(max-width:720px){.phs{flex-direction:column;gap:20px}.ph{width:220px}}
+@media(max-width:720px){.phs{flex-direction:column;gap:20px}}
 
 /* Float cards */
 .fc{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(28px) saturate(140%);-webkit-backdrop-filter:blur(28px) saturate(140%);padding:20px 22px;z-index:3;box-shadow:0 24px 80px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.08);border-radius:20px;width:100%;max-width:300px;transition:transform .4s var(--es),box-shadow .4s;position:relative}
@@ -298,168 +298,178 @@ a{text-decoration:none;color:inherit}
 @media(max-width:768px){.mcta{display:block}}
 @media(min-width:769px){.mcta{display:none!important}}
 
-/* ========== MOBILE OVERHAUL ========== */
+/* ========== MOBILE-FIRST PRODUCT EXPERIENCE ========== */
 @media(max-width:768px){
-  /* Tighter sections globally */
-  .s{padding:60px 20px}
 
-  /* Hide inline CTAs on mobile — sticky handles conversion */
+  /* --- GLOBAL --- */
+  .s{padding:56px 20px}
   .m-h{display:none!important}
 
-  /* Nav: hide CTA when scrolled (sticky bottom takes over) */
-  .nav.sc .nav__c{opacity:0;pointer-events:none;transition:opacity .3s}
+  /* --- TYPE SCALE --- */
+  .h--xl{font-size:34px}
+  .h--lg{font-size:26px}
+  .h--md{font-size:21px}
+  .bt{font-size:15px;line-height:1.6}
+  .lb{font-size:10px;letter-spacing:2.5px;margin-bottom:14px}
+
+  /* --- ANIMATIONS: GPU-accelerated, smooth, alive --- */
+  .rv{opacity:0;transform:translate3d(0,18px,0);transition:opacity .65s var(--eo),transform .65s var(--eo);will-change:transform,opacity}
+  .rv.v{opacity:1;transform:translate3d(0,0,0)}
+  .rvl{opacity:0;transform:translate3d(-18px,0,0);transition:opacity .65s var(--eo),transform .65s var(--eo);will-change:transform,opacity}
+  .rvl.v{opacity:1;transform:translate3d(0,0,0)}
+  .rvr{opacity:0;transform:translate3d(18px,0,0);transition:opacity .65s var(--eo),transform .65s var(--eo);will-change:transform,opacity}
+  .rvr.v{opacity:1;transform:translate3d(0,0,0)}
+  .rvs{opacity:0;transform:scale(.97);transition:opacity .7s var(--eo),transform .7s var(--eo);will-change:transform,opacity}
+  .rvs.v{opacity:1;transform:scale(1)}
+  .d1{transition-delay:.08s}.d2{transition-delay:.15s}.d3{transition-delay:.22s}.d4{transition-delay:.28s}.d5{transition-delay:.34s}
+
+  /* --- NAV --- */
   .nav{padding:14px 20px}
   .nav.sc{padding:10px 20px}
+  .nav.sc .nav__c{opacity:0;pointer-events:none;transition:opacity .3s}
+  .nav__c{padding:8px 18px;font-size:10px}
 
-  /* HERO: brighter, tighter, focused */
+  /* --- HERO: bright, focused, fast entry --- */
   .hero{min-height:auto}
-  .hero .s{padding-top:120px;padding-bottom:72px}
-  .hero__vid video{opacity:.5;filter:grayscale(100%) brightness(.9)}
-  .h--xl{font-size:34px}
-  .hero__sub{font-size:15px;margin-top:20px;max-width:100%}
-  .hero .cta{margin-top:28px;width:100%;text-align:center;padding:16px}
-  .hero__br{margin-bottom:28px;font-size:11px;letter-spacing:5px}
+  .hero .s{padding-top:120px;padding-bottom:68px}
+  .hero__vid video{opacity:.55;filter:grayscale(100%) brightness(.95)}
+  .hero__br{margin-bottom:24px;font-size:11px;letter-spacing:5px}
+  .hero__sub{font-size:15px;margin-top:18px;max-width:100%;opacity:.6}
+  .hero .cta{margin-top:28px;width:100%;text-align:center;padding:15px;font-size:13px}
 
-  /* Proof bar: tight single line */
+  /* --- PROOF BAR --- */
   .proof{padding:14px 16px}
   .proof__in{gap:10px}
   .proof__i{font-size:9px;letter-spacing:1.5px}
   .proof__d{width:3px;height:3px}
 
-  /* Trust strip: compact */
-  .trust{padding:32px 20px}
-  .trust__g{gap:16px}
+  /* --- TRUST STRIP --- */
+  .trust{padding:28px 20px}
+  .trust__g{gap:14px}
   .trust__q{font-size:14px;line-height:1.5}
   .trust__n{font-size:9px}
 
-  /* Problem: tighter */
+  /* --- INTERSTITIAL --- */
+  .inter{min-height:auto;padding:40px 24px}
+  .inter__t{font-size:20px;line-height:1.4}
 
-  /* Interstitial: smaller breathing room, not a scroll desert */
-  .inter{min-height:auto;padding:44px 24px}
-  .inter__t{font-size:20px;line-height:1.45}
-
-  /* APP SHOWCASE: one phone, one card, focused */
-  .show{padding:60px 0 72px}
-  .show__hd{margin-bottom:32px}
+  /* --- APP SHOWCASE: Product Reveal --- */
+  .show{padding:56px 0 64px}
+  .show__hd{margin-bottom:28px}
   .show__hd .bt{font-size:14px}
   .show__st{gap:20px}
-  .phs .ph:nth-child(2){display:none}
-  .ph{width:220px}
-  .show__col--r{display:none}
+  /* ONE big phone — product hero */
+  .phs{flex-direction:column;gap:16px}
+  .ph{width:260px}
+  .ph:nth-child(2){width:220px}
+  .ph .pf{box-shadow:0 32px 80px rgba(0,0,0,.6),0 0 40px rgba(255,255,255,.03)}
+  /* Show left column with ONE card, hide rest */
+  .show__col--l{align-items:center}
   .show__col--l .fc:nth-child(2){display:none}
-  .fc{padding:16px 18px;border-radius:16px;max-width:280px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+  .show__col--r{display:none}
+  .fc{padding:16px 18px;border-radius:16px;max-width:300px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
   .cb{font-size:13px;padding:10px 14px}
 
-  /* HOW IT WORKS: 2x2 grid, compact */
-  .hiw{padding:52px 20px}
-  .hiw__hd{margin-bottom:28px}
+  /* --- HOW IT WORKS: 2x2 compact --- */
+  .hiw{padding:48px 20px}
+  .hiw__hd{margin-bottom:24px}
   .hiw__g{grid-template-columns:1fr 1fr;gap:16px}
-  .hiw__num{font-size:26px;margin-bottom:6px}
+  .hiw__num{font-size:24px;margin-bottom:4px}
   .hiw__title{font-size:12px;letter-spacing:.5px}
   .hiw__desc{font-size:11px;line-height:1.5}
 
-  /* Quiz: compact */
-  .fw > .s[style*="padding-top:80px"]{padding-top:48px!important;padding-bottom:48px!important}
+  /* --- QUIZ --- */
 
-  /* PLANS: focused cards */
-  .pgrid{gap:28px;margin-top:32px}
-  .pc{padding-bottom:28px}
+  /* --- PLANS --- */
+  .pgrid{gap:24px;margin-top:28px}
+  .pc{padding-bottom:24px}
   .pc__img{aspect-ratio:16/10}
-  .pc__nm{font-size:20px;letter-spacing:3px;margin-bottom:8px}
+  .pc__nm{font-size:20px;letter-spacing:3px;margin-bottom:6px}
   .pc__dt{font-size:13px;line-height:1.5}
-  .pc__fr{font-size:11px;margin-bottom:16px}
+  .pc__fr{font-size:11px;margin-bottom:14px}
   .pc .cta{font-size:11px;padding:10px 24px}
   .pc .cta--t{display:none}
 
-  /* Features: tighter list */
+  /* --- FEATURES --- */
   .fl li{padding:14px 0;font-size:15px}
 
-  /* DATA VIZ: compact cards */
-  .dv{padding:52px 20px}
-  .dv__hd{margin-bottom:32px}
-  .dv__g{gap:14px}
+  /* --- DATA VIZ --- */
+  .dv{padding:48px 20px}
+  .dv__hd{margin-bottom:28px}
+  .dv__g{gap:12px}
   .dv__c{padding:22px 20px;border-radius:16px}
-  .dv__lb{font-size:9px;letter-spacing:2.5px;margin-bottom:14px}
+  .dv__lb{font-size:9px;letter-spacing:2.5px;margin-bottom:12px}
   .dv__ttl{font-size:16px}
-  .dv__sub{font-size:12px;margin-bottom:20px}
+  .dv__sub{font-size:12px;margin-bottom:18px}
+  .vb{height:80px}
 
-  /* Methodology: tighter */
-  .msplit{gap:24px}
-  .msplit__img{height:260px}
-  .meth .bt{font-size:15px}
+  /* --- METHODOLOGY: image focal point fix --- */
+  .msplit{gap:20px}
+  .msplit__img{height:300px}
+  .msplit__img img{object-position:center 25%}
+  .meth .bt{font-size:14px}
 
-  /* PRICING: focused, no bg video on mobile */
+  /* --- PRICING --- */
   .prw__vid{display:none}
   .pr__amt{font-size:44px}
   .pr__details{font-size:13px;line-height:1.9;margin:24px auto}
   .ptog__b{padding:8px 20px;font-size:11px}
 
-  /* Founder: tighter */
-  .founder{gap:24px}
-  .founder__img{height:280px}
+  /* --- FOUNDER: image focal point fix --- */
+  .founder{gap:20px}
+  .founder__img{height:320px}
+  .founder__img img{object-position:center 15%}
   .founder__txt .h--lg{font-size:24px!important}
-  .founder__txt .bt{font-size:14px;line-height:1.65}
+  .founder__txt .bt{font-size:14px;line-height:1.6}
 
-  /* 1:1 Coaching: compact */
+  /* --- 1:1 COACHING --- */
   .vidbg__v{display:none}
   .ups .bt{font-size:14px}
   .ups__pr{font-size:26px}
 
-  /* Testimonials: 2 max, tighter */
+  /* --- TESTIMONIALS --- */
   .tg{gap:14px}
   .tg .tc:nth-child(3){display:none}
   .tc{padding:20px}
-  .tc__t{font-size:14px;margin-bottom:16px}
-  .tc__s{margin-bottom:12px}
+  .tc__t{font-size:14px;margin-bottom:14px}
+  .tc__s{margin-bottom:10px}
 
-  /* FAQ: compact */
-  .faq{padding:52px 20px}
-  .faq__hd{margin-bottom:32px}
-  .faq__i{padding:18px 0}
-  .faq__q{font-size:16px;gap:16px}
-  .faq__a{font-size:13px;margin-top:12px}
+  /* --- FAQ --- */
+  .faq{padding:48px 20px}
+  .faq__hd{margin-bottom:28px}
+  .faq__i{padding:16px 0}
+  .faq__q{font-size:16px;gap:14px}
+  .faq__a{font-size:13px;margin-top:10px}
 
-  /* Final CTA: focused */
-  .fcta{padding:72px 20px}
+  /* --- FINAL CTA --- */
+  .fcta{padding:64px 20px}
   .fcta .h--lg{font-size:28px}
   .fcta .bt{font-size:14px}
 
-  /* Footer: compact */
-  .ft{padding:36px 20px}
-  .ft__b{font-size:14px;letter-spacing:5px;margin-bottom:16px}
+  /* --- FOOTER --- */
+  .ft{padding:32px 20px}
+  .ft__b{font-size:14px;letter-spacing:5px;margin-bottom:14px}
   .ft__l{font-size:12px}
-  .ft__c{margin-top:16px;font-size:10px}
+  .ft__c{margin-top:14px;font-size:10px}
 
-  /* STICKY CTA: premium, smooth, safe-area aware */
+  /* --- STICKY CTA: the conversion engine --- */
   .mcta{padding:10px 16px calc(env(safe-area-inset-bottom, 8px) + 10px);background:rgba(0,0,0,.96);backdrop-filter:blur(28px) saturate(160%);-webkit-backdrop-filter:blur(28px) saturate(160%);border-top:1px solid rgba(255,255,255,.06)}
   .mcta__b{font-weight:400;letter-spacing:2.5px;font-size:12px;padding:13px}
-  .mcta__n{font-size:10px;margin-top:5px}
+  .mcta__n{font-size:10px;margin-top:4px}
 
-  /* Less animation on mobile — performance is premium */
-  .rv{transform:translateY(14px);transition-duration:.55s}
-  .rvl,.rvr{transform:none;opacity:0;transition-duration:.55s}
-  .rvs{transform:scale(.98);transition-duration:.55s}
-  .d3,.d4,.d5{transition-delay:0s!important}
-
-  /* Body bottom padding for sticky CTA */
-  body{padding-bottom:68px}
-
-  /* Type scale adjustments */
-  .h--lg{font-size:26px}
-  .h--md{font-size:20px}
-  .bt{font-size:15px;line-height:1.65}
-  .lb{font-size:10px;letter-spacing:2.5px;margin-bottom:16px}
+  /* Body padding for sticky CTA */
+  body{padding-bottom:64px}
 }
 
 /* Small phones (iPhone SE, etc) */
 @media(max-width:380px){
   .h--xl{font-size:28px}
-  .hero .s{padding-top:100px;padding-bottom:60px}
+  .hero .s{padding-top:100px;padding-bottom:56px}
   .proof__d{display:none}
   .proof__in{gap:6px}
   .proof__i{font-size:8px}
-  .ph{width:180px}
-  .hiw__g{grid-template-columns:1fr;gap:14px}
+  .ph{width:220px}
+  .hiw__g{grid-template-columns:1fr;gap:12px}
 }
 </style>
 </head>
@@ -473,8 +483,7 @@ a{text-decoration:none;color:inherit}
 
 <!-- HERO -->
 <div class="fb" style="position:relative;">
-  <div class="hero__vid"><video autoplay muted loop playsinline id="hv">
-    <source src="https://video.wixstatic.com/video/21cb00_8c1388e9f7d441b6a20d9f1b4500eaa0/1080p/mp4/file.mp4" type="video/mp4">
+  <div class="hero__vid"><video autoplay muted loop playsinline id="hv" preload="auto">
     <source src="https://video.wixstatic.com/video/21cb00_8c1388e9f7d441b6a20d9f1b4500eaa0/720p/mp4/file.mp4" type="video/mp4">
   </video></div>
   <div class="hero">
@@ -562,7 +571,7 @@ a{text-decoration:none;color:inherit}
       </div>
       <div class="phs">
         <div class="ph rvs"><div class="pf"><img src="https://static.wixstatic.com/media/21cb00_4bd64399ac51409ab22f72ff96d22d08~mv2.png" alt="VOLTR App" loading="lazy"></div></div>
-        <div class="ph rvs d2"><div class="pf"><video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;"><source src="app-preview.mp4" type="video/mp4"></video></div></div>
+        <div class="ph rvs d2"><div class="pf"><video autoplay muted loop playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;"><source src="app-preview.mp4" type="video/mp4"></video></div></div>
       </div>
       <div class="show__col show__col--r">
         <div class="fc fc--c rvr">
@@ -809,7 +818,7 @@ a{text-decoration:none;color:inherit}
 
 <!-- 1:1 COACHING -->
 <div class="fb vidbg">
-  <video autoplay muted loop playsinline class="vidbg__v"><source src="https://video.wixstatic.com/video/21cb00_8c1388e9f7d441b6a20d9f1b4500eaa0/1080p/mp4/file.mp4" type="video/mp4"></video>
+  <video autoplay muted loop playsinline preload="none" class="vidbg__v"><source src="https://video.wixstatic.com/video/21cb00_8c1388e9f7d441b6a20d9f1b4500eaa0/720p/mp4/file.mp4" type="video/mp4"></video>
   <div class="s ups vidbg__c">
     <div class="lb rv">Personal Coaching</div>
     <h2 class="h h--md rv d1">Want more? Train directly with us.</h2>
@@ -914,9 +923,9 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&co.classLis
 var nv=document.getElementById('nav');
 window.addEventListener('scroll',function(){nv.classList.toggle('sc',window.scrollY>80)},{passive:true});
 
-/* HERO PARALLAX */
+/* HERO PARALLAX — desktop only for performance */
 var hv=document.getElementById('hv'),rf=false;
-window.addEventListener('scroll',function(){if(!rf){requestAnimationFrame(function(){if(window.scrollY<window.innerHeight*1.5)hv.style.transform='translate3d(0,'+window.scrollY*.3+'px,0)';rf=false});rf=true}},{passive:true});
+if(window.innerWidth>768){window.addEventListener('scroll',function(){if(!rf){requestAnimationFrame(function(){if(window.scrollY<window.innerHeight*1.5)hv.style.transform='translate3d(0,'+window.scrollY*.3+'px,0)';rf=false});rf=true}},{passive:true})}
 
 /* REVEAL */
 var ro=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting)e.target.classList.add('v')})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
@@ -941,7 +950,7 @@ var tbs=document.querySelectorAll('.ptog__b'),pill=document.getElementById('pill
 var pAmt=document.getElementById('prAmt'),pPer=document.getElementById('prPer'),pBadge=document.getElementById('prBadge');
 tbs.forEach(function(b){b.addEventListener('click',function(){
   tbs.forEach(function(x){x.classList.remove('a')});b.classList.add('a');
-  if(b.dataset.plan==='annual'){cPlan='annual';pill.classList.add('r');pAmt.textContent='€499.90';pPer.textContent='per year';pBadge.classList.add('sh')}
+  if(b.dataset.plan==='annual'){cPlan='annual';pill.classList.add('r');pAmt.textContent='€499.99';pPer.textContent='per year';pBadge.classList.add('sh')}
   else{cPlan='monthly';pill.classList.remove('r');pAmt.textContent='€49.99';pPer.textContent='per month';pBadge.classList.remove('sh')}
 })});
 
