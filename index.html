@@ -944,6 +944,8 @@ var mUrl='https://voltrmvtso.mvt.so/buy/20155';
 // TODO: Replace ANNUAL_ID with your movement.so annual product ID
 var aUrl='https://voltrmvtso.mvt.so/buy/21130';
 var cPlan='monthly';
+// UTM Parameter Forwarding for Ad Tracking
+(function(){var ps=new URLSearchParams(window.location.search);var u=[];['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k){var v=ps.get(k);if(v)u.push(k+'='+encodeURIComponent(v))});if(u.length){var s='?'+u.join('&');mUrl+=s;aUrl+=s}})();
 
 function openCO(e){if(e)e.preventDefault();coF.src=mUrl;co.classList.add('vi');document.body.style.overflow='hidden'}
 function openPrCO(e){if(e)e.preventDefault();coF.src=cPlan==='annual'?aUrl:mUrl;co.classList.add('vi');document.body.style.overflow='hidden'}
