@@ -8,6 +8,22 @@
 <link rel="icon" type="image/jpeg" href="https://static.wixstatic.com/media/21cb00_8b1c2ce67e254e4a8f0ae5d8d2a182e4~mv2.jpg">
 <link rel="apple-touch-icon" href="https://static.wixstatic.com/media/21cb00_8b1c2ce67e254e4a8f0ae5d8d2a182e4~mv2.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '865727659692251');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=865727659692251&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{--bk:#000;--wh:#fff;--gl:#f5f5f5;--gm:#999;--gd:#333;--f:'Outfit',sans-serif;--eo:cubic-bezier(.16,1,.3,1);--es:cubic-bezier(.4,0,.2,1)}
@@ -16,7 +32,6 @@ body{font-family:var(--f);font-weight:300;color:var(--wh);background:var(--bk);-
 a{text-decoration:none;color:inherit}
 .s{padding:120px 32px;max-width:1200px;margin:0 auto}
 @media(max-width:768px){.s{padding:80px 20px}}
-
 /* REVEAL */
 .rv{opacity:0;transform:translateY(26px);transition:opacity .85s var(--eo),transform .85s var(--eo)}
 .rv.v{opacity:1;transform:translateY(0)}
@@ -27,7 +42,6 @@ a{text-decoration:none;color:inherit}
 .rvs{opacity:0;transform:scale(.96);transition:opacity .85s var(--eo),transform .85s var(--eo)}
 .rvs.v{opacity:1;transform:scale(1)}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
-
 /* CTA */
 .cta{display:inline-block;padding:16px 40px;border:1px solid var(--wh);color:var(--wh);font-family:var(--f);font-weight:300;font-size:14px;letter-spacing:2px;text-transform:uppercase;transition:all .4s var(--es);cursor:pointer}
 .cta:hover{background:var(--wh);color:var(--bk);box-shadow:0 8px 32px rgba(255,255,255,.1);transform:translateY(-1px)}
@@ -37,7 +51,6 @@ a{text-decoration:none;color:inherit}
 .cta--d:hover{background:var(--bk);color:var(--wh);transform:translateY(-1px)}
 .cta--df{background:var(--bk);color:var(--wh);border-color:var(--bk)}
 .cta--df:hover{background:transparent;color:var(--bk)}
-
 /* TYPE */
 .h{font-weight:200;letter-spacing:-.02em;line-height:1.1}
 .h--xl{font-size:clamp(40px,6vw,72px)}
@@ -45,7 +58,6 @@ a{text-decoration:none;color:inherit}
 .h--md{font-size:clamp(24px,3vw,36px)}
 .bt{font-weight:300;font-size:clamp(16px,1.8vw,19px);line-height:1.7;max-width:680px}
 .lb{font-weight:400;font-size:12px;letter-spacing:3px;text-transform:uppercase;opacity:.5;margin-bottom:24px}
-
 /* NAV */
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 32px;display:flex;align-items:center;justify-content:space-between;background:rgba(0,0,0,.6);backdrop-filter:blur(20px) saturate(150%);-webkit-backdrop-filter:blur(20px) saturate(150%);border-bottom:1px solid rgba(255,255,255,.05);transition:all .4s}
 .nav.sc{background:rgba(0,0,0,.92);padding:12px 32px}
@@ -54,7 +66,6 @@ a{text-decoration:none;color:inherit}
 .nav__c{display:inline-block;padding:10px 24px;background:#fff;border:1px solid #fff;color:#000;font-family:var(--f);font-weight:400;font-size:11px;letter-spacing:2px;text-transform:uppercase;transition:all .4s var(--es)}
 .nav__c:hover{background:transparent;color:#fff;box-shadow:0 4px 20px rgba(255,255,255,.1)}
 @media(max-width:768px){.nav{padding:14px 20px}.nav__c{padding:8px 18px;font-size:10px}}
-
 /* HERO */
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:1}
 .hero .s{padding-top:180px;padding-bottom:160px}
@@ -64,29 +75,24 @@ a{text-decoration:none;color:inherit}
 .hero__vid{position:absolute;inset:0;background:#000;overflow:hidden;z-index:0}
 .hero__vid video{width:100%;height:100%;object-fit:cover;opacity:.45;filter:grayscale(100%) brightness(.9);will-change:transform}
 @media(max-width:768px){.hero .s{padding-top:140px;padding-bottom:100px}}
-
 .fw{background:var(--wh);color:var(--bk)}
 .fb{background:var(--bk);color:var(--wh)}
-
 /* PROOF BAR */
 .proof{background:#000;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);padding:24px 32px}
 .proof__in{max-width:700px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:40px}
 .proof__i{font-weight:300;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.45);white-space:nowrap}
 .proof__d{width:4px;height:4px;background:rgba(255,255,255,.2);border-radius:50%;flex-shrink:0}
 @media(max-width:520px){.proof__in{gap:18px}.proof__i{font-size:10px;letter-spacing:2px}}
-
 /* TRUST STRIP */
 .trust{padding:56px 32px;border-bottom:1px solid rgba(255,255,255,.05)}
 .trust__g{max-width:960px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
 .trust__q{font-size:15px;font-weight:300;font-style:italic;color:rgba(255,255,255,.55);line-height:1.6;margin-bottom:12px}
 .trust__n{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.25)}
 @media(max-width:768px){.trust__g{grid-template-columns:1fr;gap:28px;text-align:center}}
-
 /* INTERSTITIAL */
 .inter{min-height:45vh;display:flex;align-items:center;justify-content:center;padding:80px 32px;border-top:1px solid rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.04)}
 .inter__t{font-size:clamp(26px,3.5vw,44px);font-weight:200;text-align:center;letter-spacing:-.02em;line-height:1.35;max-width:720px;color:rgba(255,255,255,.8)}
 @media(max-width:768px){.inter{min-height:35vh;padding:60px 24px}}
-
 /* SHOWCASE */
 .show{position:relative;overflow:hidden;background:#000;padding:120px 0 140px}
 .show__bg{position:absolute;inset:0;z-index:0}
@@ -103,7 +109,6 @@ a{text-decoration:none;color:inherit}
 .ph .pf::before{display:none}
 .ph .pf img,.ph .pf video{width:100%;height:100%;object-fit:cover;display:block}
 @media(max-width:720px){.phs{flex-direction:column;gap:20px}}
-
 /* Float cards */
 .fc{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(28px) saturate(140%);-webkit-backdrop-filter:blur(28px) saturate(140%);padding:20px 22px;z-index:3;box-shadow:0 24px 80px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.08);border-radius:20px;width:100%;max-width:300px;transition:transform .4s var(--es),box-shadow .4s;position:relative}
 .fc:hover{transform:translateY(-4px);box-shadow:0 32px 100px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.12)}
@@ -126,7 +131,6 @@ a{text-decoration:none;color:inherit}
 .fc__dy.rs{opacity:.3}
 @media(max-width:960px){.show{padding:80px 0 100px}.show__st{grid-template-columns:1fr;gap:28px}.show__col--l,.show__col--r{align-items:center;gap:20px}.phs{order:0}.fc{max-width:340px;margin:0 auto}}
 @media(max-width:720px){.show__in{padding:0 20px}}
-
 /* HOW IT WORKS */
 .hiw{padding:100px 32px;max-width:1000px;margin:0 auto}
 .hiw__hd{text-align:center;margin-bottom:64px}
@@ -137,7 +141,6 @@ a{text-decoration:none;color:inherit}
 .hiw__desc{font-size:13px;font-weight:300;color:rgba(255,255,255,.4);line-height:1.6}
 @media(max-width:768px){.hiw__g{grid-template-columns:repeat(2,1fr);gap:32px}.hiw{padding:80px 20px}}
 @media(max-width:480px){.hiw__g{grid-template-columns:1fr;gap:28px}}
-
 /* PLANS */
 .pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:48px;margin-top:64px}
 @media(max-width:768px){.pgrid{grid-template-columns:1fr;gap:40px}}
@@ -156,14 +159,12 @@ a{text-decoration:none;color:inherit}
 .pc .cta--t{padding:12px 0;border:none;letter-spacing:2px;color:var(--gm)}
 .pc .cta--t:hover{background:transparent;color:var(--bk);box-shadow:none;transform:none}
 .pc__badge{position:absolute;top:16px;right:16px;font-size:10px;font-weight:400;letter-spacing:2px;text-transform:uppercase;background:#000;color:#fff;padding:6px 14px;z-index:2}
-
 /* FEATURES */
 .fl{list-style:none;margin-top:48px}
 .fl li{font-weight:300;font-size:clamp(16px,1.8vw,20px);padding:20px 0;border-bottom:1px solid rgba(255,255,255,.1);letter-spacing:.5px;opacity:0;transform:translateY(14px);transition:opacity .6s var(--eo),transform .6s var(--eo)}
 .fl li:first-child{border-top:1px solid rgba(255,255,255,.1)}
 .fl.v li{opacity:1;transform:translateY(0)}
 .fl.v li:nth-child(1){transition-delay:0s}.fl.v li:nth-child(2){transition-delay:.06s}.fl.v li:nth-child(3){transition-delay:.12s}.fl.v li:nth-child(4){transition-delay:.18s}.fl.v li:nth-child(5){transition-delay:.24s}.fl.v li:nth-child(6){transition-delay:.3s}.fl.v li:nth-child(7){transition-delay:.36s}
-
 /* DATA VIZ */
 .dv{padding:120px 32px;max-width:1200px;margin:0 auto}
 .dv__hd{text-align:center;margin-bottom:72px}
@@ -175,7 +176,6 @@ a{text-decoration:none;color:inherit}
 .dv__lb{font-size:10px;font-weight:400;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:20px}
 .dv__ttl{font-size:18px;font-weight:300;letter-spacing:-.01em;margin-bottom:8px;color:rgba(255,255,255,.9)}
 .dv__sub{font-size:13px;font-weight:300;color:rgba(255,255,255,.4);line-height:1.6;margin-bottom:28px}
-
 /* Intensity Zone */
 .zone{display:flex;gap:3px;height:8px;margin-bottom:12px}
 .zone__s{flex:1;border-radius:4px;transition:all 1s var(--eo)}
@@ -185,7 +185,6 @@ a{text-decoration:none;color:inherit}
 .zone.an .zone__s--mid{background:rgba(255,255,255,.75);box-shadow:0 0 16px rgba(255,255,255,.15)}
 .zone-lbl{display:flex;justify-content:space-between;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.2)}
 .zone-lbl span:nth-child(2){color:rgba(255,255,255,.5)}
-
 /* Progress Bars */
 .vb{display:flex;align-items:flex-end;gap:6px;height:110px;margin-bottom:16px}
 .vb__b{flex:1;background:rgba(255,255,255,.06);border-radius:4px 4px 0 0;height:100%;display:flex;align-items:flex-end}
@@ -194,7 +193,6 @@ a{text-decoration:none;color:inherit}
 .vb__b:nth-child(1) .vb__f{transition-delay:0s}.vb__b:nth-child(2) .vb__f{transition-delay:.08s}.vb__b:nth-child(3) .vb__f{transition-delay:.14s}.vb__b:nth-child(4) .vb__f{transition-delay:.2s}.vb__b:nth-child(5) .vb__f{transition-delay:.26s}.vb__b:nth-child(6) .vb__f{transition-delay:.32s}
 .vb-l{display:flex;gap:6px}
 .vb-l span{flex:1;text-align:center;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.25)}
-
 /* Consistency Week Heatmap */
 .wkh__l{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-bottom:6px}
 .wkh__l span{text-align:center;font-size:9px;letter-spacing:1.5px;color:rgba(255,255,255,.3);font-weight:400}
@@ -202,7 +200,6 @@ a{text-decoration:none;color:inherit}
 .wkh__d{aspect-ratio:1;border-radius:6px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);transition:all .5s var(--eo)}
 .wkh__d.f{background:rgba(255,255,255,.06)}
 .wkh.an .wkh__d.f{background:rgba(255,255,255,.8);border-color:rgba(255,255,255,.9);box-shadow:0 0 6px rgba(255,255,255,.08)}
-
 /* METHODOLOGY */
 .msplit{display:flex;gap:80px;align-items:center}
 .msplit__img{flex-shrink:0;width:400px;aspect-ratio:3/4;overflow:hidden}
@@ -210,7 +207,6 @@ a{text-decoration:none;color:inherit}
 .msplit:hover .msplit__img img{transform:scale(1.03)}
 .meth .bt{margin-top:32px;color:var(--gd)}
 @media(max-width:768px){.msplit{flex-direction:column;gap:40px}.msplit__img{width:100%}}
-
 /* PRICING */
 .prw{position:relative;overflow:hidden}
 .prw__vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.14;filter:grayscale(50%) blur(1px);z-index:0}
@@ -225,7 +221,6 @@ a{text-decoration:none;color:inherit}
 .pr__badge{display:inline-block;margin-top:16px;padding:4px 14px;font-size:10px;font-weight:400;letter-spacing:2.5px;text-transform:uppercase;border:1px solid rgba(255,255,255,.15);border-radius:50px;color:rgba(255,255,255,.55);opacity:0;transition:opacity .4s;height:24px}
 .pr__badge.sh{opacity:1}
 .pr__details{margin:40px auto;max-width:400px;font-weight:300;font-size:15px;line-height:2;opacity:.7}
-
 /* FOUNDER */
 .founder{display:flex;gap:80px;align-items:flex-start}
 .founder__img{flex-shrink:0;width:360px;height:480px;overflow:hidden}
@@ -233,7 +228,6 @@ a{text-decoration:none;color:inherit}
 .founder:hover .founder__img img{transform:scale(1.03)}
 .founder__txt .bt{margin-top:24px;color:var(--gd)}
 @media(max-width:768px){.founder{flex-direction:column;gap:40px}.founder__img{width:100%;height:360px}}
-
 /* COACHING UPSELL */
 .vidbg{position:relative;overflow:hidden}
 .vidbg__v{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(100%);opacity:.3;z-index:0}
@@ -242,7 +236,6 @@ a{text-decoration:none;color:inherit}
 .ups .bt{margin:24px auto 40px;opacity:.7;text-align:center}
 .ups__pr{font-weight:200;font-size:32px;margin-bottom:8px}
 .ups__pp{font-size:14px;opacity:.5;margin-bottom:40px}
-
 /* TESTIMONIALS */
 .tg{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:56px}
 .tc{padding:32px;border:1px solid rgba(0,0,0,.08);transition:transform .4s var(--es),box-shadow .4s}
@@ -251,7 +244,6 @@ a{text-decoration:none;color:inherit}
 .tc__t{font-weight:300;font-size:15px;line-height:1.7;color:var(--gd);font-style:italic;margin-bottom:24px}
 .tc__a{font-size:11px;font-weight:400;letter-spacing:2px;text-transform:uppercase;color:var(--gm)}
 @media(max-width:768px){.tg{grid-template-columns:1fr;gap:20px}.tc{padding:24px}}
-
 /* FAQ */
 .faq{max-width:860px;margin:0 auto;padding:120px 32px}
 .faq__hd{text-align:center;margin-bottom:64px}
@@ -262,13 +254,11 @@ a{text-decoration:none;color:inherit}
 .faq__tog{flex-shrink:0;font-size:22px;font-weight:200;line-height:1;color:rgba(255,255,255,.6);transition:transform .4s var(--es)}
 .faq__i[open] .faq__tog{transform:rotate(45deg)}
 .faq__a{margin-top:16px;font-size:15px;line-height:1.7;font-weight:300;color:rgba(255,255,255,.65);max-width:640px}
-
 /* FINAL CTA */
 .fcta{text-align:center;padding:140px 32px}
 .fcta .h{margin-bottom:16px}
 .fcta .bt{margin:0 auto 48px;text-align:center;opacity:.6}
 .fcta__n{margin-top:20px;font-size:13px;font-weight:300;opacity:.4;letter-spacing:1px}
-
 /* FOOTER */
 .ft{padding:60px 32px;text-align:center;border-top:1px solid rgba(255,255,255,.08)}
 .ft__b{font-weight:200;font-size:18px;letter-spacing:6px;text-transform:uppercase;margin-bottom:24px}
@@ -276,9 +266,7 @@ a{text-decoration:none;color:inherit}
 .ft__l a{margin:0 12px;transition:opacity .3s}
 .ft__l a:hover{opacity:1}
 .ft__c{margin-top:24px;font-size:12px;opacity:.25;letter-spacing:1px}
-
 .bw{filter:grayscale(100%);width:100%;height:100%;object-fit:cover}
-
 /* CHECKOUT */
 .co{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);align-items:center;justify-content:center;opacity:0;transition:opacity .4s var(--es)}
 .co.vi{display:flex;opacity:1}
@@ -289,7 +277,6 @@ a{text-decoration:none;color:inherit}
 .co__x:hover{background:rgba(0,0,0,.12);transform:rotate(90deg)}
 .co__bx iframe{width:100%;height:100%;border:none}
 @media(max-width:560px){.co__bx{max-width:100%;height:100vh;max-height:100vh;border-radius:0}}
-
 /* MOBILE CTA */
 .mcta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:99;padding:12px 20px 16px;background:rgba(0,0,0,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid rgba(255,255,255,.08);text-align:center;transform:translateY(100%);transition:transform .4s var(--eo)}
 .mcta.vi{transform:translateY(0)}
@@ -298,22 +285,15 @@ a{text-decoration:none;color:inherit}
 .mcta__n{margin-top:6px;font-size:11px;color:rgba(255,255,255,.35);letter-spacing:.5px}
 @media(max-width:768px){.mcta{display:block}}
 @media(min-width:769px){.mcta{display:none!important}}
-
 /* ========== MOBILE-FIRST PRODUCT EXPERIENCE ========== */
 @media(max-width:768px){
-
-  /* --- GLOBAL --- */
   .s{padding:56px 20px}
   .m-h{display:none!important}
-
-  /* --- TYPE SCALE --- */
   .h--xl{font-size:34px}
   .h--lg{font-size:26px}
   .h--md{font-size:21px}
   .bt{font-size:15px;line-height:1.6}
   .lb{font-size:10px;letter-spacing:2.5px;margin-bottom:14px}
-
-  /* --- ANIMATIONS: GPU-accelerated, smooth, alive --- */
   .rv{opacity:0;transform:translate3d(0,18px,0);transition:opacity .65s var(--eo),transform .65s var(--eo);will-change:transform,opacity}
   .rv.v{opacity:1;transform:translate3d(0,0,0)}
   .rvl{opacity:0;transform:translate3d(-18px,0,0);transition:opacity .65s var(--eo),transform .65s var(--eo);will-change:transform,opacity}
@@ -323,65 +303,45 @@ a{text-decoration:none;color:inherit}
   .rvs{opacity:0;transform:scale(.97);transition:opacity .7s var(--eo),transform .7s var(--eo);will-change:transform,opacity}
   .rvs.v{opacity:1;transform:scale(1)}
   .d1{transition-delay:.08s}.d2{transition-delay:.15s}.d3{transition-delay:.22s}.d4{transition-delay:.28s}.d5{transition-delay:.34s}
-
-  /* --- NAV --- */
   .nav{padding:14px 20px}
   .nav.sc{padding:10px 20px}
   .nav.sc .nav__c{opacity:0;pointer-events:none;transition:opacity .3s}
   .nav__c{padding:8px 18px;font-size:10px}
-
-  /* --- HERO: bright, focused, fast entry --- */
   .hero{min-height:auto}
   .hero .s{padding-top:120px;padding-bottom:68px}
   .hero__vid video{opacity:.55;filter:grayscale(100%) brightness(.95)}
   .hero__br{margin-bottom:24px;font-size:11px;letter-spacing:5px}
   .hero__sub{font-size:15px;margin-top:18px;max-width:100%;opacity:.6}
   .hero .cta{margin-top:28px;width:100%;text-align:center;padding:15px;font-size:13px}
-
-  /* --- PROOF BAR --- */
   .proof{padding:14px 16px}
   .proof__in{gap:10px}
   .proof__i{font-size:9px;letter-spacing:1.5px}
   .proof__d{width:3px;height:3px}
-
-  /* --- TRUST STRIP --- */
   .trust{padding:28px 20px}
   .trust__g{gap:14px}
   .trust__q{font-size:14px;line-height:1.5}
   .trust__n{font-size:9px}
-
-  /* --- INTERSTITIAL --- */
   .inter{min-height:auto;padding:40px 24px}
   .inter__t{font-size:20px;line-height:1.4}
-
-  /* --- APP SHOWCASE: Product Reveal --- */
   .show{padding:56px 0 64px}
   .show__hd{margin-bottom:28px}
   .show__hd .bt{font-size:14px}
   .show__st{gap:20px}
-  /* ONE big phone — product hero */
   .phs{flex-direction:column;gap:16px}
   .ph{width:260px}
   .ph:nth-child(2){width:220px}
   .ph .pf{box-shadow:0 32px 80px rgba(0,0,0,.6),0 0 40px rgba(255,255,255,.03)}
-  /* Show left column with ONE card, hide rest */
   .show__col--l{align-items:center}
   .show__col--l .fc:nth-child(2){display:none}
   .show__col--r{display:none}
   .fc{padding:16px 18px;border-radius:16px;max-width:300px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
   .cb{font-size:13px;padding:10px 14px}
-
-  /* --- HOW IT WORKS: 2x2 compact --- */
   .hiw{padding:48px 20px}
   .hiw__hd{margin-bottom:24px}
   .hiw__g{grid-template-columns:1fr 1fr;gap:16px}
   .hiw__num{font-size:24px;margin-bottom:4px;color:rgba(255,255,255,.35)}
   .hiw__title{font-size:12px;letter-spacing:.5px}
   .hiw__desc{font-size:11px;line-height:1.5}
-
-  /* --- QUIZ --- */
-
-  /* --- PLANS --- */
   .pgrid{gap:24px;margin-top:28px}
   .pc{padding-bottom:24px}
   .pc__img{aspect-ratio:16/10}
@@ -390,11 +350,7 @@ a{text-decoration:none;color:inherit}
   .pc__fr{font-size:11px;margin-bottom:14px}
   .pc .cta{font-size:11px;padding:10px 24px}
   .pc .cta--t{font-size:10px;padding:8px 0}
-
-  /* --- FEATURES --- */
   .fl li{padding:14px 0;font-size:15px}
-
-  /* --- DATA VIZ --- */
   .dv{padding:48px 20px}
   .dv__hd{margin-bottom:28px}
   .dv__g{gap:12px}
@@ -403,66 +359,44 @@ a{text-decoration:none;color:inherit}
   .dv__ttl{font-size:16px}
   .dv__sub{font-size:12px;margin-bottom:18px}
   .vb{height:80px}
-
-  /* --- METHODOLOGY: image focal point fix --- */
   .msplit{gap:20px}
   .msplit__img{height:300px}
   .msplit__img img{object-position:center 25%}
   .meth .bt{font-size:14px}
-
-  /* --- PRICING --- */
   .prw__vid{display:none}
   .pr__amt{font-size:44px}
   .pr__details{font-size:13px;line-height:1.9;margin:24px auto}
   .ptog__b{padding:8px 20px;font-size:11px}
-
-  /* --- FOUNDER: image focal point fix --- */
   .founder{gap:20px}
   .founder__img{height:320px}
   .founder__img img{object-position:center 15%}
   .founder__txt .h--lg{font-size:24px!important}
   .founder__txt .bt{font-size:14px;line-height:1.6}
-
-  /* --- 1:1 COACHING --- */
   .vidbg__v{display:none}
   .ups .bt{font-size:14px}
   .ups__pr{font-size:26px}
-
-  /* --- TESTIMONIALS --- */
   .tg{gap:14px}
   .tg .tc:nth-child(3){display:none}
   .tc{padding:20px}
   .tc__t{font-size:14px;margin-bottom:14px}
   .tc__s{margin-bottom:10px}
-
-  /* --- FAQ --- */
   .faq{padding:48px 20px}
   .faq__hd{margin-bottom:28px}
   .faq__i{padding:16px 0}
   .faq__q{font-size:16px;gap:14px}
   .faq__a{font-size:13px;margin-top:10px}
-
-  /* --- FINAL CTA --- */
   .fcta{padding:64px 20px}
   .fcta .h--lg{font-size:28px}
   .fcta .bt{font-size:14px}
-
-  /* --- FOOTER --- */
   .ft{padding:32px 20px}
   .ft__b{font-size:14px;letter-spacing:5px;margin-bottom:14px}
   .ft__l{font-size:12px}
   .ft__c{margin-top:14px;font-size:10px}
-
-  /* --- STICKY CTA: the conversion engine --- */
   .mcta{padding:10px 16px calc(env(safe-area-inset-bottom, 8px) + 10px);background:rgba(0,0,0,.96);backdrop-filter:blur(28px) saturate(160%);-webkit-backdrop-filter:blur(28px) saturate(160%);border-top:1px solid rgba(255,255,255,.06)}
   .mcta__b{font-weight:400;letter-spacing:2.5px;font-size:12px;padding:13px}
   .mcta__n{font-size:10px;margin-top:4px}
-
-  /* Body padding for sticky CTA */
   body{padding-bottom:64px}
 }
-
-/* Small phones (iPhone SE, etc) */
 @media(max-width:380px){
   .h--xl{font-size:28px}
   .hero .s{padding-top:100px;padding-bottom:56px}
@@ -475,13 +409,11 @@ a{text-decoration:none;color:inherit}
 </style>
 </head>
 <body>
-
 <!-- NAV -->
 <nav class="nav" id="nav">
   <a href="#" class="nav__l">VOLTR.</a>
   <a href="#" class="nav__c" onclick="openCO(event)">Get Started</a>
 </nav>
-
 <!-- HERO -->
 <div class="fb" style="position:relative;">
   <div class="hero__vid"><video autoplay muted loop playsinline webkit-playsinline id="hv" preload="auto" poster="https://static.wixstatic.com/media/21cb00_5ddab3e026ee4cc69230db1460d2fde4~mv2.jpg">
@@ -491,18 +423,12 @@ a{text-decoration:none;color:inherit}
     <div class="s" style="padding-top:180px;">
       <div class="hero__br rv">VOLTR.</div>
       <h1 class="h h--xl rv d1">Structured training<br>for real life.</h1>
-      <!-- ALT HEADLINES:
-      <h1 class="h h--xl rv d1">Finally, training that<br>adapts to real life.</h1>
-      <h1 class="h h--xl rv d1">Performance that<br>fits your life.</h1>
-      <h1 class="h h--xl rv d1">Built for people who<br>train seriously but<br>live fully.</h1>
-      -->
       <p class="hero__sub rv d2">Four training programs that adapt to your week, your energy, and your schedule. Gym-focused. Coach-led. €49.99/month.</p>
       <a href="#" class="cta cta--f rv d3" onclick="openCO(event)">Get Started</a>
       <p class="rv d4" style="margin-top:16px;font-size:13px;font-weight:300;opacity:.4;letter-spacing:.5px;">€49.99/month. Cancel anytime.</p>
     </div>
   </div>
 </div>
-
 <!-- PROOF BAR -->
 <div class="proof">
   <div class="proof__in">
@@ -512,7 +438,6 @@ a{text-decoration:none;color:inherit}
     <span class="proof__i">Gym-focused</span>
   </div>
 </div>
-
 <!-- TRUST STRIP -->
 <div class="fb trust">
   <div class="trust__g">
@@ -530,7 +455,6 @@ a{text-decoration:none;color:inherit}
     </div>
   </div>
 </div>
-
 <!-- PROBLEM -->
 <div class="fb">
   <div class="s">
@@ -541,13 +465,11 @@ a{text-decoration:none;color:inherit}
     <a href="#" class="cta cta--f rv d4 m-h" onclick="openCO(event)" style="margin-top:40px;">Get Started</a>
   </div>
 </div>
-
 <!-- INTERSTITIAL -->
 <div class="fb inter">
   <p class="inter__t rv">Finally. Training that respects<br>your time and your body.</p>
   <p class="rv d2" style="margin-top:24px;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.25);text-align:center;">One membership. All programs. Cancel anytime.</p>
 </div>
-
 <!-- APP SHOWCASE -->
 <section class="show">
   <div class="show__bg"><img src="https://static.wixstatic.com/media/21cb00_5ddab3e026ee4cc69230db1460d2fde4~mv2.jpg" alt="" loading="lazy"></div>
@@ -591,7 +513,6 @@ a{text-decoration:none;color:inherit}
     </div>
   </div>
 </section>
-
 <!-- HOW IT WORKS -->
 <div class="fb" style="border-top:1px solid rgba(255,255,255,.05);">
   <div class="hiw">
@@ -623,7 +544,6 @@ a{text-decoration:none;color:inherit}
     </div>
   </div>
 </div>
-
 <!-- QUIZ -->
 <div class="fw">
   <div class="s rv" style="text-align:center;padding-top:80px;padding-bottom:80px;">
@@ -632,7 +552,6 @@ a{text-decoration:none;color:inherit}
     <a href="https://training-debug.github.io/find-your-plan-/" class="cta cta--d">Find Your Plan</a>
   </div>
 </div>
-
 <!-- PLANS -->
 <div class="fw" style="background:var(--gl);">
   <div class="s">
@@ -681,7 +600,6 @@ a{text-decoration:none;color:inherit}
     </div>
   </div>
 </div>
-
 <!-- FEATURES -->
 <div class="fb">
   <div class="s">
@@ -699,7 +617,6 @@ a{text-decoration:none;color:inherit}
     <a href="#" class="cta cta--f rv m-h" style="margin-top:48px;" onclick="openCO(event)">Get Started</a>
   </div>
 </div>
-
 <!-- DATA VIZ -->
 <div class="fb" style="border-top:1px solid rgba(255,255,255,.05);">
   <div class="dv">
@@ -709,7 +626,6 @@ a{text-decoration:none;color:inherit}
       <p class="bt rv d2" style="margin:20px auto 0;text-align:center;opacity:.45;">Built-in progression logic. Structured load management. Your training tells the story.</p>
     </div>
     <div class="dv__g">
-      <!-- INTENSITY ZONE -->
       <div class="dv__c rv" id="zoneCard">
         <div class="dv__lb">Intensity Management</div>
         <div class="dv__ttl">Sustainable intensity</div>
@@ -722,8 +638,6 @@ a{text-decoration:none;color:inherit}
         <div class="zone-lbl"><span>Too easy</span><span>Effective range</span><span>Too hard</span></div>
         <p style="margin-top:20px;font-size:11px;letter-spacing:1.5px;color:rgba(255,255,255,.25);text-transform:uppercase;text-align:center;">RPE keeps you in the right zone</p>
       </div>
-
-      <!-- PROGRESSIVE OVERLOAD -->
       <div class="dv__c rv d1" id="volCard">
         <div class="dv__lb">Strength Trend</div>
         <div class="dv__ttl">Progressive overload</div>
@@ -738,8 +652,6 @@ a{text-decoration:none;color:inherit}
         </div>
         <div class="vb-l"><span>Wk 1</span><span>Wk 2</span><span>Wk 3</span><span>Wk 4</span><span>Wk 5</span><span>Wk 6</span></div>
       </div>
-
-      <!-- CONSISTENCY -->
       <div class="dv__c rv d2" id="dotCard">
         <div class="dv__lb">Consistency</div>
         <div class="dv__ttl">Show up. Stay on track.</div>
@@ -756,7 +668,6 @@ a{text-decoration:none;color:inherit}
     </div>
   </div>
 </div>
-
 <!-- METHODOLOGY -->
 <div class="fw">
   <div class="s meth">
@@ -772,7 +683,6 @@ a{text-decoration:none;color:inherit}
     </div>
   </div>
 </div>
-
 <!-- PRICING -->
 <div class="fb prw">
   <video autoplay muted loop playsinline class="prw__vid"><source src="app-preview.mp4" type="video/mp4"></video>
@@ -801,7 +711,6 @@ a{text-decoration:none;color:inherit}
     <p class="rv d5" style="margin-top:16px;font-size:13px;font-weight:300;opacity:.35;">Cancel anytime. No commitment.</p>
   </div>
 </div>
-
 <!-- FOUNDER -->
 <div class="fw">
   <div class="s">
@@ -818,7 +727,6 @@ a{text-decoration:none;color:inherit}
     </div>
   </div>
 </div>
-
 <!-- 1:1 COACHING -->
 <div class="fb vidbg">
   <video autoplay muted loop playsinline preload="none" class="vidbg__v"><source src="https://video.wixstatic.com/video/21cb00_8c1388e9f7d441b6a20d9f1b4500eaa0/720p/mp4/file.mp4" type="video/mp4"></video>
@@ -831,7 +739,6 @@ a{text-decoration:none;color:inherit}
     <a href="mailto:training@voltr.at" class="cta rv d4">Apply for Coaching</a>
   </div>
 </div>
-
 <!-- TESTIMONIALS -->
 <div class="fw">
   <div class="s" style="text-align:center;">
@@ -859,7 +766,6 @@ a{text-decoration:none;color:inherit}
     </div>
   </div>
 </div>
-
 <!-- FAQ -->
 <div class="fb">
   <div class="faq">
@@ -881,7 +787,6 @@ a{text-decoration:none;color:inherit}
     </div>
   </div>
 </div>
-
 <!-- FINAL CTA -->
 <div class="fb">
   <div class="s fcta">
@@ -892,7 +797,6 @@ a{text-decoration:none;color:inherit}
     <p class="fcta__n rv d4">€49.99/month. Cancel anytime.</p>
   </div>
 </div>
-
 <!-- FOOTER -->
 <div class="fb">
   <div class="ft">
@@ -902,44 +806,34 @@ a{text-decoration:none;color:inherit}
     <div class="ft__c">&copy; 2026 VOLTR.</div>
   </div>
 </div>
-
 <!-- MOBILE CTA -->
 <div class="mcta" id="mcta"><button class="mcta__b" onclick="openCO(event)">Get Started</button><div class="mcta__n">€49.99/month · Cancel anytime</div></div>
-
 <!-- CHECKOUT -->
 <div class="co" id="co"><div class="co__bx"><button class="co__x" onclick="closeCO()" aria-label="Close">&#10005;</button><iframe id="coF" src="" allow="payments fullscreen" loading="lazy"></iframe></div></div>
-
 <script>
 var co=document.getElementById('co'),coF=document.getElementById('coF');
 var mUrl='https://voltrmvtso.mvt.so/buy/20155';
-// TODO: Replace ANNUAL_ID with your movement.so annual product ID
 var aUrl='https://voltrmvtso.mvt.so/buy/21130';
 var cPlan='monthly';
-
 function openCO(e){if(e)e.preventDefault();coF.src=mUrl;co.classList.add('vi');document.body.style.overflow='hidden'}
 function openPrCO(e){if(e)e.preventDefault();coF.src=cPlan==='annual'?aUrl:mUrl;co.classList.add('vi');document.body.style.overflow='hidden'}
 function closeCO(){co.classList.add('cl');setTimeout(function(){co.classList.remove('vi','cl');coF.src='';document.body.style.overflow=''},350)}
 co.addEventListener('click',function(e){if(e.target===co)closeCO()});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'&&co.classList.contains('vi'))closeCO()});
-
 /* NAV */
 var nv=document.getElementById('nav');
 window.addEventListener('scroll',function(){nv.classList.toggle('sc',window.scrollY>80)},{passive:true});
-
-/* HERO PARALLAX — desktop only for performance */
+/* HERO PARALLAX */
 var hv=document.getElementById('hv'),rf=false;
 if(window.innerWidth>768){window.addEventListener('scroll',function(){if(!rf){requestAnimationFrame(function(){if(window.scrollY<window.innerHeight*1.5)hv.style.transform='translate3d(0,'+window.scrollY*.3+'px,0)';rf=false});rf=true}},{passive:true})}
-
 /* REVEAL */
 var ro=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting)e.target.classList.add('v')})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.rv,.rvl,.rvr,.rvs').forEach(function(el){ro.observe(el)});
-
 /* FEATURES */
 var fl=document.getElementById('fl');
 var fo=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting)e.target.classList.add('v')})},{threshold:.2});
 if(fl)fo.observe(fl);
-
-/* MOBILE CTA — delayed smooth entrance */
+/* MOBILE CTA */
 var mc=document.getElementById('mcta'),mcTimer=null;
 var mo=new IntersectionObserver(function(en){en.forEach(function(e){
   if(!e.isIntersecting){if(!mcTimer)mcTimer=setTimeout(function(){mc.classList.add('vi')},800)}
@@ -947,7 +841,6 @@ var mo=new IntersectionObserver(function(en){en.forEach(function(e){
 })},{threshold:0});
 var he=document.querySelector('.hero');
 if(he&&mc)mo.observe(he);
-
 /* PRICING TOGGLE */
 var tbs=document.querySelectorAll('.ptog__b'),pill=document.getElementById('pill');
 var pAmt=document.getElementById('prAmt'),pPer=document.getElementById('prPer'),pBadge=document.getElementById('prBadge');
@@ -956,35 +849,35 @@ tbs.forEach(function(b){b.addEventListener('click',function(){
   if(b.dataset.plan==='annual'){cPlan='annual';pill.classList.add('r');pAmt.textContent='€499.99';pPer.textContent='per year';pBadge.classList.add('sh')}
   else{cPlan='monthly';pill.classList.remove('r');pAmt.textContent='€49.99';pPer.textContent='per month';pBadge.classList.remove('sh')}
 })});
-
 /* DATA VIZ */
-// Zone
 var zA=false,zC=document.getElementById('zoneCard');
 var zO=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting&&!zA){zA=true;document.getElementById('zone').classList.add('an')}})},{threshold:.3});
 if(zC)zO.observe(zC);
-
-// Volume bars
 var vA=false,vC=document.getElementById('volCard');
 var vO=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting&&!vA){vA=true;document.getElementById('vb').classList.add('an')}})},{threshold:.3});
 if(vC)vO.observe(vC);
-
-// Consistency Heatmap
 var dA=false,dC=document.getElementById('dotCard');
 var dO=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting&&!dA){dA=true;var g=document.getElementById('wkh');g.classList.add('an');var cells=g.querySelectorAll('.wkh__d.f');cells.forEach(function(c,i){c.style.transitionDelay=(i*.04)+'s'})}})},{threshold:.3});
 if(dC)dO.observe(dC);
-
-/* VIDEO AUTOPLAY FALLBACK — iOS Safari sometimes blocks autoplay */
+/* VIDEO AUTOPLAY FALLBACK */
 function tryPlay(){document.querySelectorAll('video[autoplay]').forEach(function(v){if(v.paused){var p=v.play();if(p)p.catch(function(){})}});}
-/* Try on load */
 tryPlay();
-/* Try on first interaction as fallback */
 var played=false;
 function onFirst(){if(!played){played=true;tryPlay();document.removeEventListener('touchstart',onFirst);document.removeEventListener('scroll',onFirst)}}
 document.addEventListener('touchstart',onFirst,{passive:true,once:true});
 document.addEventListener('scroll',onFirst,{passive:true,once:true});
-/* Also try when videos become visible */
 var vidObs=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting&&e.target.paused){var p=e.target.play();if(p)p.catch(function(){})}})},{threshold:.1});
 document.querySelectorAll('video[autoplay]').forEach(function(v){vidObs.observe(v)});
+/* LEAD TRACKING — fires on every "Get Started" click */
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a, button').forEach(function(el) {
+    if (el.textContent.trim() === 'Get Started') {
+      el.addEventListener('click', function() {
+        if(typeof fbq !== 'undefined') fbq('track', 'Lead');
+      });
+    }
+  });
+});
 </script>
 </body>
 </html>
