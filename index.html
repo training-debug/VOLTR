@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js')</script>
 <style>
 :root{
   --black:#0A0A0A; --white:#FAFAFA; --gray:#8A8A8A; --dgray:#5A5A5A;
@@ -35,11 +36,11 @@ section{padding:120px 0}
 .dark{background:var(--black);color:var(--white)}
 
 /* Reveal animations */
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.6,.2,1),transform .8s cubic-bezier(.2,.6,.2,1)}
-.reveal.in{opacity:1;transform:none}
+.js .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.6,.2,1),transform .8s cubic-bezier(.2,.6,.2,1)}
+.js .reveal.in{opacity:1;transform:none}
 .d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
-.wipe{clip-path:inset(0 100% 0 0);transition:clip-path 1.2s cubic-bezier(.2,.6,.2,1)}
-.wipe.in{clip-path:inset(0 0 0 0)}
+.js .wipe{clip-path:inset(0 100% 0 0);transition:clip-path 1.2s cubic-bezier(.2,.6,.2,1)}
+.js .wipe.in{clip-path:inset(0 0 0 0)}
 .rule{position:relative;padding-top:16px}
 .rule:before{content:'';position:absolute;top:0;left:0;height:1px;width:0;background:currentColor;opacity:.4;transition:width 1.1s cubic-bezier(.2,.6,.2,1) .1s}
 .rule.in:before{width:56px}
@@ -59,6 +60,9 @@ nav .links a.navcta:hover{background:var(--white);color:var(--black)}
 
 /* HERO — typographic */
 .hero{background:var(--black);color:var(--white);min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden}
+.hero .herovid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05);opacity:.55}
+.hero .herovid-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.55) 0%,rgba(10,10,10,.25) 45%,rgba(10,10,10,.92) 100%);z-index:1}
+.hero .ticker{position:relative;z-index:2}
 .hero .grid-line{position:absolute;top:0;bottom:0;width:1px;background:var(--hairline);opacity:.55;transform:scaleY(0);transform-origin:top;animation:grow 1.4s cubic-bezier(.2,.6,.2,1) forwards}
 .hero .gl1{left:25%;animation-delay:.2s}.hero .gl2{left:50%;animation-delay:.35s}.hero .gl3{left:75%;animation-delay:.5s}
 @keyframes grow{to{transform:scaleY(1)}}
@@ -226,6 +230,10 @@ footer .legal{display:flex;gap:24px;flex-wrap:wrap}
 
 <!-- HERO -->
 <header class="hero" id="top">
+  <video class="herovid" autoplay muted loop playsinline preload="metadata" poster="https://static.wixstatic.com/media/21cb00_9958c4d64bf94b008bf19d6693c4cf6e~mv2.jpg">
+    <source src="https://video.wixstatic.com/video/21cb00_8c1388e9f7d441b6a20d9f1b4500eaa0/720p/mp4/file.mp4" type="video/mp4">
+  </video>
+  <div class="herovid-shade"></div>
   <div class="grid-line gl1"></div><div class="grid-line gl2"></div><div class="grid-line gl3"></div>
   <div class="wrap content">
     <div class="label kicker">VOLTR &middot; Vienna &middot; EST. 2026</div>
@@ -290,7 +298,7 @@ footer .legal{display:flex;gap:24px;flex-wrap:wrap}
         <div class="price" style="font-size:22px;padding:7px 0">On application</div>
         <div class="per">Vienna &amp; travel &middot; limited availability</div>
         <ul>
-          <li>Personal training, 2x per week</li>
+          <li>Personal training, in person</li>
           <li>Programming that travels with you</li>
           <li>Monthly performance report</li>
           <li>Full discretion</li>
@@ -478,10 +486,10 @@ footer .legal{display:flex;gap:24px;flex-wrap:wrap}
   <div class="wrap">
     <div class="label reveal">VOLTR Private</div>
     <h2 class="reveal d1">In person. Wherever you are.</h2>
-    <p class="reveal d2">Personal training in Vienna and on the road. Built for people whose calendar, security detail or public role doesn't allow for a normal gym routine.</p>
+    <p class="reveal d2">Personal training in Vienna and on the road. Built for people whose calendar doesn't allow a normal gym routine: executives, pilots, founders, people who live between time zones.</p>
     <p class="reveal d2">No wearables required. Progress measured, documented and reported monthly.</p>
     <div class="facts reveal d3">
-      <span>2x per week in person</span>
+      <span>In person, on your schedule</span>
       <span>Travel programming</span>
       <span>Monthly performance report</span>
       <span>Full discretion</span>
