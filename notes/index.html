@@ -242,13 +242,6 @@
       <button type="button" class="pill" data-v="5plus" aria-pressed="false">5+</button>
     </div>
 
-    <label class="label">Language</label>
-    <div class="pills two" id="lang">
-      <button type="button" class="pill" data-v="de" aria-pressed="false">Deutsch</button>
-      <button type="button" class="pill" data-v="en" aria-pressed="false">English</button>
-    </div>
-    <p class="note" id="note">Notes are in English. Pick your language for what comes after.</p>
-
     <button class="btn" id="submit">Send me No. 01</button>
 
     <p class="err" id="err"></p>
@@ -283,13 +276,7 @@ const CONFIG = {
   KIT_FORM_ID: "9758862",
 
   // Kit custom field keys. Create these in Kit under Subscribers > Custom fields.
-  FIELD_DAYS: "days",
-  FIELD_LANG: "language",
-
-  // Language notes shown under the language pills
-  NOTE_DEFAULT: "The guide is in English. Pick your language for what comes after.",
-  NOTE_DE: "Der Performance Letter kommt jede Woche auf Deutsch. Die Notes selbst sind auf Englisch.",
-  NOTE_EN: "Heads up: the weekly letter is in German. In English you get every Note plus the essentials, and the full English letter as soon as enough of you are on the list."
+  FIELD_DAYS: "days"
 };
 /* ================================================================== */
 
@@ -308,9 +295,6 @@ function wirePills(groupId, key, after) {
 }
 
 wirePills('days', 'days');
-wirePills('lang', 'lang', v => {
-  $('note').textContent = v === 'de' ? CONFIG.NOTE_DE : CONFIG.NOTE_EN;
-});
 
 function fail(msg) {
   const e = $('err');
@@ -324,7 +308,6 @@ $('submit').addEventListener('click', async () => {
 
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return fail('That email does not look right.');
   if (!state.days) return fail('Pick how many days your week gives you.');
-  if (!state.lang) return fail('Pick a language.');
 
   const btn = $('submit');
   btn.disabled = true;
@@ -333,7 +316,6 @@ $('submit').addEventListener('click', async () => {
   const body = new FormData();
   body.append('email_address', email);
   body.append('fields[' + CONFIG.FIELD_DAYS + ']', state.days);
-  body.append('fields[' + CONFIG.FIELD_LANG + ']', state.lang);
 
   try {
     const r = await fetch('https://app.kit.com/forms/' + CONFIG.KIT_FORM_ID + '/subscriptions', {
@@ -343,11 +325,6 @@ $('submit').addEventListener('click', async () => {
     });
     if (!r.ok) throw new Error(r.status);
 
-    if (state.lang === 'de') {
-      $('doneMsg').textContent = 'Bestätige das Mail, dann kommt No. 01 direkt danach. Wenn nichts da ist, schau in Werbung oder Spam.';
-      $('doneMsg2').textContent = 'Noch was. Ich coache sechs Leute 1:1, deren Woche bau ich jeden Montag neu. Wenn ich auf deine schauen soll, antworte auf das Mail und schreib mir, wie sie grad ausschaut. Ich lese jedes.';
-      $('done').querySelector('h2').innerHTML = 'Schau ins<br>Postfach';
-    }
     $('form').style.display = 'none';
     $('done').style.display = 'flex';
     window.scrollTo(0, 0);
