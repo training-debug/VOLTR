@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Frequency | VOLTR Notes No. 01</title>
+<meta name="description" content="A three-day week is not a five-day week with two days missing. One page per frequency.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Frequency | VOLTR Notes No. 01">
+<meta property="og:description" content="A three-day week is not a five-day week with two days missing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500&family=Space+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     VOLTR LANDING PAGE
+     Edit only the CONFIG block in the <script> at the bottom.
+     ============================================================ */
+
+  :root{
+    --black:#000;
+    --white:#fff;
+    --g1:#8a8a8a;   /* secondary text */
+    --g2:#3a3a3a;   /* borders */
+    --g3:#1a1a1a;   /* field bg */
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+
+  html,body{background:var(--black);color:var(--white)}
+
+  body{
+    font-family:'Outfit',-apple-system,BlinkMacSystemFont,sans-serif;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+    min-height:100svh;
+    display:flex;
+    flex-direction:column;
+    padding:24px 22px calc(20px + env(safe-area-inset-bottom));
+  }
+
+  .wrap{
+    width:100%;max-width:440px;margin:0 auto;
+    flex:1;display:flex;flex-direction:column;
+  }
+
+  /* ---------- brand ---------- */
+  .brand{
+    font-family:'Space Mono',monospace;
+    font-size:11px;letter-spacing:.34em;
+    color:var(--white);text-transform:uppercase;
+    margin-bottom:22px;
+  }
+  .brand-sub{color:#5a5a5a;letter-spacing:.22em;margin-left:6px}
+
+  /* ---------- headline ---------- */
+  h1{
+    font-weight:200;
+    font-size:clamp(30px,9vw,40px);
+    line-height:1.02;
+    letter-spacing:-.022em;
+    text-transform:uppercase;
+    margin-bottom:13px;
+  }
+
+  .sub{
+    font-size:16px;line-height:1.5;
+    color:var(--g1);font-weight:300;
+    margin-bottom:20px;max-width:34ch;
+  }
+
+  /* ---------- what you get ---------- */
+  .list{
+    list-style:none;
+    border-top:1px solid var(--g2);
+    margin-bottom:24px;
+  }
+  .list li{
+    border-bottom:1px solid var(--g2);
+    padding:9px 0;
+    font-size:14px;line-height:1.35;
+    color:var(--white);font-weight:300;
+    display:flex;gap:12px;
+  }
+  .list li span{
+    font-family:'Space Mono',monospace;
+    font-size:10px;color:var(--g1);
+    padding-top:4px;flex:none;
+  }
+
+  /* ---------- form ---------- */
+  .label{
+    font-family:'Space Mono',monospace;
+    font-size:10px;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--g1);
+    margin-bottom:7px;display:block;
+  }
+
+  .field{
+    width:100%;
+    background:var(--g3);
+    border:1px solid var(--g2);
+    color:var(--white);
+    font-family:'Outfit',sans-serif;
+    font-size:16px;font-weight:300;
+    padding:14px 14px;
+    margin-bottom:17px;
+    border-radius:0;
+    transition:border-color .15s;
+  }
+  .field::placeholder{color:#555}
+  .field:focus{outline:none;border-color:var(--white)}
+
+  /* pill selectors */
+  .pills{display:flex;gap:7px;margin-bottom:17px}
+  .pills.two .pill{flex:1}
+  .pill{
+    flex:1;
+    background:transparent;
+    border:1px solid var(--g2);
+    color:var(--g1);
+    font-family:'Outfit',sans-serif;
+    font-size:14.5px;font-weight:300;
+    padding:12px 4px;
+    cursor:pointer;
+    transition:all .15s;
+    border-radius:0;
+  }
+  .pill[aria-pressed="true"]{
+    background:var(--white);
+    border-color:var(--white);
+    color:var(--black);
+    font-weight:400;
+  }
+
+  /* honest note under language */
+  .note{
+    font-size:12.5px;line-height:1.45;
+    color:var(--g1);
+    margin:-9px 0 18px;
+    min-height:34px;
+  }
+
+  /* submit */
+  .btn{
+    width:100%;
+    background:var(--white);color:var(--black);
+    border:1px solid var(--white);
+    font-family:'Outfit',sans-serif;
+    font-size:15px;font-weight:400;
+    letter-spacing:.06em;text-transform:uppercase;
+    padding:16px;
+    cursor:pointer;border-radius:0;
+    transition:opacity .15s;
+  }
+  .btn:disabled{opacity:.4;cursor:default}
+  .btn:not(:disabled):active{opacity:.75}
+
+  .legal{
+    font-size:11.5px;line-height:1.5;
+    color:#666;margin-top:14px;
+  }
+  .legal a{color:#888;text-decoration:underline;text-underline-offset:2px}
+
+  .err{
+    font-size:13px;color:#fff;
+    border-left:2px solid #fff;
+    padding-left:10px;margin-top:14px;display:none;
+  }
+
+  /* ---------- success ---------- */
+  #done{display:none;flex:1;flex-direction:column;justify-content:center}
+  #done h2{
+    font-weight:200;font-size:clamp(28px,8vw,38px);
+    line-height:1.05;text-transform:uppercase;
+    letter-spacing:-.02em;margin-bottom:18px;
+  }
+  #done p{font-size:15.5px;line-height:1.55;color:var(--g1);margin-bottom:14px;max-width:34ch}
+  #done .ig{
+    display:inline-block;margin-top:14px;
+    font-family:'Space Mono',monospace;font-size:11px;
+    letter-spacing:.18em;text-transform:uppercase;
+    color:var(--white);text-decoration:none;
+    border-bottom:1px solid var(--g2);padding-bottom:5px;
+  }
+
+  .foot{
+    font-family:'Space Mono',monospace;
+    font-size:9.5px;letter-spacing:.16em;
+    text-transform:uppercase;color:#4a4a4a;
+    margin-top:22px;
+  }
+  .foot a{color:#4a4a4a;text-decoration:none;margin-right:14px}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="brand">VOLTR. <span class="brand-sub">Notes / No. 01</span></div>
+
+  <!-- ============ FORM STATE ============ -->
+  <div id="form">
+    <h1 id="h1">Frequency</h1>
+
+    <p class="sub" id="sub">A three-day week is not a five-day week with two days missing. It is a different structure. Here it is, one page per frequency.</p>
+
+    <ul class="list" id="bullets">
+      <li><span>01</span>The session order that makes three days work</li>
+      <li><span>02</span>What to cut first, and what never to cut</li>
+      <li><span>03</span>How to keep progressing without adding days</li>
+    </ul>
+
+    <label class="label" for="email">Email</label>
+    <input class="field" type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" inputmode="email" required>
+
+    <label class="label">Days you train per week</label>
+    <div class="pills" id="days">
+      <button type="button" class="pill" data-v="2" aria-pressed="false">2</button>
+      <button type="button" class="pill" data-v="3" aria-pressed="false">3</button>
+      <button type="button" class="pill" data-v="4" aria-pressed="false">4</button>
+      <button type="button" class="pill" data-v="5plus" aria-pressed="false">5+</button>
+    </div>
+
+    <label class="label">Language</label>
+    <div class="pills two" id="lang">
+      <button type="button" class="pill" data-v="de" aria-pressed="false">Deutsch</button>
+      <button type="button" class="pill" data-v="en" aria-pressed="false">English</button>
+    </div>
+    <p class="note" id="note">Notes are in English. Pick your language for what comes after.</p>
+
+    <button class="btn" id="submit">Send me No. 01</button>
+
+    <p class="err" id="err"></p>
+
+    <p class="legal">
+      You are signing up for emails from VOLTR. Unsubscribe any time, one click.
+      <a href="https://voltr.at/datenschutz" target="_blank" rel="noopener">Privacy</a>
+    </p>
+  </div>
+
+  <!-- ============ SUCCESS STATE ============ -->
+  <div id="done">
+    <h2>Check your<br>inbox</h2>
+    <p id="doneMsg">Confirm the email and No. 01 comes straight after. If it is not there in two minutes, look in promotions or spam.</p>
+    <p id="doneMsg2">One thing. I also coach six people 1:1, and their week gets rebuilt every Monday. If you want me to look at yours, reply to that email and tell me what it looks like right now. I read every one.</p>
+    <a class="ig" href="https://instagram.com/voltr.training" target="_blank" rel="noopener">← Back to Instagram</a>
+  </div>
+
+  <div class="foot">
+    <a href="https://voltr.at/impressum" target="_blank" rel="noopener">Impressum</a>
+    <a href="https://voltr.at/datenschutz" target="_blank" rel="noopener">Datenschutz</a>
+  </div>
+</div>
+
+<script>
+/* ==================================================================
+   CONFIG: the only part you need to touch
+   ================================================================== */
+const CONFIG = {
+  // Kit (ConvertKit) form ID. Find it in Kit under Grow > Landing Pages & Forms
+  // > open your form > Embed > HTML. The number in the action URL is the ID.
+  KIT_FORM_ID: "9758862",
+
+  // Kit custom field keys. Create these in Kit under Subscribers > Custom fields.
+  FIELD_DAYS: "days",
+  FIELD_LANG: "language",
+
+  // Language notes shown under the language pills
+  NOTE_DEFAULT: "The guide is in English. Pick your language for what comes after.",
+  NOTE_DE: "Der Performance Letter kommt jede Woche auf Deutsch. Die Notes selbst sind auf Englisch.",
+  NOTE_EN: "Heads up: the weekly letter is in German. In English you get every Note plus the essentials, and the full English letter as soon as enough of you are on the list."
+};
+/* ================================================================== */
+
+const $ = id => document.getElementById(id);
+const state = { days: null, lang: null };
+
+function wirePills(groupId, key, after) {
+  $(groupId).addEventListener('click', e => {
+    const b = e.target.closest('.pill');
+    if (!b) return;
+    [...$(groupId).children].forEach(p => p.setAttribute('aria-pressed', 'false'));
+    b.setAttribute('aria-pressed', 'true');
+    state[key] = b.dataset.v;
+    if (after) after(b.dataset.v);
+  });
+}
+
+wirePills('days', 'days');
+wirePills('lang', 'lang', v => {
+  $('note').textContent = v === 'de' ? CONFIG.NOTE_DE : CONFIG.NOTE_EN;
+});
+
+function fail(msg) {
+  const e = $('err');
+  e.textContent = msg;
+  e.style.display = 'block';
+}
+
+$('submit').addEventListener('click', async () => {
+  const email = $('email').value.trim();
+  $('err').style.display = 'none';
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return fail('That email does not look right.');
+  if (!state.days) return fail('Pick how many days your week gives you.');
+  if (!state.lang) return fail('Pick a language.');
+
+  const btn = $('submit');
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+
+  const body = new FormData();
+  body.append('email_address', email);
+  body.append('fields[' + CONFIG.FIELD_DAYS + ']', state.days);
+  body.append('fields[' + CONFIG.FIELD_LANG + ']', state.lang);
+
+  try {
+    const r = await fetch('https://app.kit.com/forms/' + CONFIG.KIT_FORM_ID + '/subscriptions', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body
+    });
+    if (!r.ok) throw new Error(r.status);
+
+    if (state.lang === 'de') {
+      $('doneMsg').textContent = 'Bestätige das Mail, dann kommt No. 01 direkt danach. Wenn nichts da ist, schau in Werbung oder Spam.';
+      $('doneMsg2').textContent = 'Noch was. Ich coache sechs Leute 1:1, deren Woche bau ich jeden Montag neu. Wenn ich auf deine schauen soll, antworte auf das Mail und schreib mir, wie sie grad ausschaut. Ich lese jedes.';
+      $('done').querySelector('h2').innerHTML = 'Schau ins<br>Postfach';
+    }
+    $('form').style.display = 'none';
+    $('done').style.display = 'flex';
+    window.scrollTo(0, 0);
+  } catch (err) {
+    btn.disabled = false;
+    btn.textContent = 'Send me No. 01';
+    fail('Something went wrong. Try again, or DM me on Instagram and I will send it over.');
+  }
+});
+
+// enter key submits
+$('email').addEventListener('keydown', e => { if (e.key === 'Enter') $('submit').click(); });
+</script>
+</body>
+</html>
